@@ -1,12 +1,6 @@
 import tvm.relay as relay
 import tvm
 
-def get_model(path):
-    graph = open(path + ".json").read()
-    lib = tvm.module.load(path + ".tar")
-    params = bytearray(open(path + ".params", "rb").read())
-    return graph, lib, params
-
 def create_target(device):
     if device == "x86":
         target = tvm.target.create("llvm")
@@ -43,11 +37,26 @@ def get_onnx(path):
     input_shape = [i.dim_value for i in  on.graph.input[0].type.tensor_type.shape.dim]  
     return on, {name : input_shape}
 
-def build_model(onnx_model, input_shape, target):
+def get_model(path):
+    graph = open(path + ".json").read()
+    lib = tvm.module.load(path + ".tar")
+    params = bytearray(open(path + ".params", "rb").read())
+    return graph, lib, params
+
+def build_model_from_onnx(onnx_model, input_shape, target, log = ""):
+    from tvm import autotvm
+    import os
     model, relay_params = relay.frontend.from_onnx(onnx_model, input_shape)
     func = model["main"]
-    with relay.build_config(opt_level=3):
-        graph, lib, params = relay.build(func , target, params = relay_params)
+    if os.path.isfile(log):
+        with autotvm.apply_history_best(log):
+            with relay.build_config(opt_level=3):
+                graph, lib, params = relay.build(func , target, params = relay_params)
+    else:
+        with relay.build_config(opt_level=3):
+            graph, lib, params = relay.build(func , target, params = relay_params)
+
+        
     return graph, lib , params
 
 def save_model(graph, lib, params, prefix = "relay"):
