@@ -7,13 +7,24 @@ def get_tasks_from_onnx(on, input_shape, target):
     func = mod["main"] 
     ops = [
         relay.op.nn.conv2d,
-        relay.nn.batch_matmul,
-        relay.nn.dense,
-        relay.nn.conv2d_transpose,
+        relay.op.nn.batch_matmul,
+        relay.op.nn.dense,
+        relay.op.nn.conv2d_transpose,
         ]
     tasks = autotvm.task.extract_from_program(func, target = target,
                                 params = params,
                                 ops = ops)
+    for i in range(len(tasks)):
+        try:  
+            tsk = autotvm.task.create(tasks[i].name, tasks[i].args,
+                                      tasks[i].target, tasks[i].target_host, 'winograd')
+            input_channel = tsk.workload[1][1]
+            if input_channel >= 64:
+                print(tasks[i].name + " goto winograd " + tsk.name , tasks[i].args)
+                tasks[i] = tsk
+        except Exception:
+            pass
+
     return tasks
 
 def create_measure(device):
@@ -47,13 +58,14 @@ def create_measure(device):
         )
     return measure_option
 
-def tune_task(tasks, measure, resume_log_file = "tune.log", n_trial = 10):
+def tune_task(name, tasks, measure, resume_log_file = "tune.log", n_trial = 10):
     from tvm.autotvm.tuner import XGBTuner
     import os
     for idx , task in enumerate(reversed(tasks)):
-        prefix = "[Task %2d/%2d] " % (idx + 1, len(tasks) )
+        prefix = "[%s][Task %2d/%2d] " % (name, idx + 1, len(tasks) )
         tuner = XGBTuner(task, loss_type = 'rank')
         if os.path.isfile(resume_log_file):
+            print("load log file:" + resume_log_file)
             tuner.load_history(autotvm.record.load_from_file(resume_log_file)) 
         n_try = min(n_trial, len(task.config_space))
         tuner.tune(n_trial = n_try,
@@ -79,5 +91,7 @@ if __name__ == "__main__":
     measure = create_measure(arg.device)
     tasks = get_tasks_from_onnx(on, input_shape, target)
     print("Got %d task to tune" % (len(tasks)))
+    for i in tasks:
+        print(i.name)    
     name = os.path.basename(arg.onnx) + "_" + arg.device + ".log"
-    tune_task(tasks, measure, resume_log_file = name, n_trial = arg.time)
+    tune_task(arg.onnx, tasks, measure, resume_log_file = name, n_trial = arg.time)

@@ -8,7 +8,7 @@ def create_target(device):
         target = tvm.target.cuda()
     return target
 
-def create_ctx(device, did = 1):
+def create_ctx(device, did = 0):
     if device == "x86":
         ctx = tvm.cpu(did)
     elif device == "gpu":
@@ -26,7 +26,7 @@ def speed(graph, lib, params, ctx):
     module = runtime.create(graph, lib, ctx)
     module.set_input(input_name, data_tvm)
     module.load_params(params)
-    ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 10)
+    ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 100)
     prof_res = np.array(ftimer().results) * 1000
     return np.mean(prof_res)
 
