@@ -29,8 +29,13 @@ def create_measure(device):
     elif device == 'x86':
         measure_option = autotvm.measure_option(
         builder=autotvm.LocalBuilder(),
-        runner=autotvm.LocalRunner(number=5, repeat=1,
-        min_repeat_ms=1000),
+ #       runner=autotvm.LocalRunner(number=5, repeat=1,
+ #       min_repeat_ms=1000),
+       runner=autotvm.RPCRunner(
+        'x86',  # change the device key to your key
+        '0.0.0.0', 9190,
+        number=20, repeat=3, timeout=4, min_repeat_ms=150)
+
        )
     elif device == 'gpu':
         measure_option = autotvm.measure_option(
