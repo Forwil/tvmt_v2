@@ -27,7 +27,7 @@ def get_tasks_from_onnx(on, input_shape, target):
 
     return tasks
 
-def create_measure(device):
+def create_measure(device, flag = "t4"):
     if device == 'arm' or device == 'aarch64':
         measure_option = autotvm.measure_option(
         builder=autotvm.LocalBuilder(
@@ -50,11 +50,11 @@ def create_measure(device):
        )
     elif device == 'gpu':
         measure_option = autotvm.measure_option(
-        builder=autotvm.LocalBuilder(timeout=10),
+        builder=autotvm.LocalBuilder(timeout=100),
         runner=autotvm.RPCRunner(
-        't4',  # change the device key to your key
+        flag,  # change the device key to your key
         '0.0.0.0', 9190,
-        number=20, repeat=3, timeout=4, min_repeat_ms=150)
+        number=20, repeat=3, timeout=100, min_repeat_ms=150)
         )
     return measure_option
 
@@ -84,14 +84,16 @@ if __name__ == "__main__":
     parser.add_argument("onnx", help = "onnx model path")
     parser.add_argument("-d", "--device", default="x86", choices=["gpu","x86"])
     parser.add_argument("-t", "--time", default=10, type = int)
+    parser.add_argument("-b", "--batch", default=1, type = int)
+    parser.add_argument("-f", "--flag", default="t4", type = str)
     arg = parser.parse_args()
 
-    on, input_shape = get_onnx(arg.onnx)
+    on, input_shape = get_onnx(arg.onnx,arg.batch)
     target = create_target(arg.device)
-    measure = create_measure(arg.device)
+    measure = create_measure(arg.device, arg.flag)
     tasks = get_tasks_from_onnx(on, input_shape, target)
     print("Got %d task to tune" % (len(tasks)))
     for i in tasks:
         print(i.name)    
-    name = os.path.basename(arg.onnx) + "_" + arg.device + ".log"
+    name = os.path.basename(arg.onnx) + "_" + arg.device + "_" + str(arg.batch) +".log"
     tune_task(arg.onnx, tasks, measure, resume_log_file = name, n_trial = arg.time)

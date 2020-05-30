@@ -30,11 +30,12 @@ def speed(graph, lib, params, ctx):
     prof_res = np.array(ftimer().results) * 1000
     return np.mean(prof_res)
 
-def get_onnx(path):
+def get_onnx(path, batch=1):
     import onnx
     on = onnx.load(open(path, "rb"))
     name = on.graph.input[0].name
     input_shape = [i.dim_value for i in  on.graph.input[0].type.tensor_type.shape.dim]  
+    input_shape[0] = batch
     return on, {name : input_shape}
 
 def get_model(path):
