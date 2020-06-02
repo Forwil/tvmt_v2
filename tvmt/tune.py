@@ -6,10 +6,10 @@ def get_tasks_from_onnx(on, input_shape, target):
     mod, params = relay.frontend.from_onnx(on, input_shape) 
     func = mod["main"] 
     ops = [
-        relay.op.nn.conv2d,
-        relay.op.nn.batch_matmul,
-        relay.op.nn.dense,
-        relay.op.nn.conv2d_transpose,
+        relay.op.get("nn.conv2d"),
+        relay.op.get("nn.batch_matmul"),
+        relay.op.get("nn.dense"),
+        relay.op.get("nn.conv2d_transpose"),
         ]
     tasks = autotvm.task.extract_from_program(func, target = target,
                                 params = params,
@@ -61,6 +61,11 @@ def create_measure(device, flag = "t4"):
 def tune_task(name, tasks, measure, resume_log_file = "tune.log", n_trial = 10):
     from tvm.autotvm.tuner import XGBTuner
     import os
+    dir_name = os.path.dirname(resume_log_file)
+    try:
+        os.mkdir(dir_name)
+    except:
+        pass
     for idx , task in enumerate(reversed(tasks)):
         prefix = "[%s][Task %2d/%2d] " % (name, idx + 1, len(tasks) )
         tuner = XGBTuner(task, loss_type = 'rank')
@@ -94,6 +99,6 @@ if __name__ == "__main__":
     tasks = get_tasks_from_onnx(on, input_shape, target)
     print("Got %d task to tune" % (len(tasks)))
     for i in tasks:
-        print(i.name)    
-    name = os.path.basename(arg.onnx) + "_" + arg.device + "_" + str(arg.batch) +".log"
+        print(i.name, i.config_space)    
+    name = os.path.join("logs", os.path.basename(arg.onnx) + "_" + arg.device + "_" + str(arg.batch) +".log")
     tune_task(arg.onnx, tasks, measure, resume_log_file = name, n_trial = arg.time)

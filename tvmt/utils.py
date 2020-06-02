@@ -40,7 +40,7 @@ def get_onnx(path, batch=1):
 
 def get_model(path):
     graph = open(path + ".json").read()
-    lib = tvm.module.load(path + ".tar")
+    lib = tvm.runtime.module.load_module(path + ".tar")
     params = bytearray(open(path + ".params", "rb").read())
     return graph, lib, params
 
@@ -62,6 +62,13 @@ def build_model_from_onnx(onnx_model, input_shape, target, log = ""):
 
 def save_model(graph, lib, params, prefix = "relay"):
     deploy_name = prefix
+    import os
+    dir_name = os.path.dirname(deploy_name)
+    try:
+        os.mkdir(dir_name) 
+    except:
+        pass
+    print("save to %s" % (deploy_name))
     lib.export_library(deploy_name + '.tar' )
     with open(deploy_name + ".json", "w") as fo:
         fo.write(graph)
