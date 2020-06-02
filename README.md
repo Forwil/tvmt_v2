@@ -18,7 +18,7 @@ python tvmt/convert.py --help可输出帮助信息
 
 功能：执行relay模型（暂不支持remote模式），进行测速
 
-样例1（不使用log进行转换）：python tvmt/speed.py relay_model/resnet18.onnx
+样例1：python tvmt/speed.py relay_model/resnet18.onnx
 
 输出：\[模型名字\] , \[耗时(ms)\]
 
@@ -26,7 +26,7 @@ python tvmt/convert.py --help可输出帮助信息
 
 功能：对onnx模型进行autotune，可以指定device，tune的轮数，以及使用的batch size
 
-样例1（不使用log进行转换）：python tvmt/tune.py xxx.onnx -d gpu -t 1000 -b 16
+样例1：python tvmt/tune.py xxx.onnx -d gpu -t 1000 -b 16
 
 输出：在logs目录下生成log，第二次启动会从logs中获取最好的参数进行继续训练
 
