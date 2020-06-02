@@ -1,4 +1,4 @@
-for i in `cat list_8`
+for i in `cat list`
 do
-    python tune.py models/$i.onnx -d gpu -t 1000 &
+    python tvmt/tune.py models/$i.onnx -d gpu -t 100 
 done

@@ -51,10 +51,10 @@ def build_model_from_onnx(onnx_model, input_shape, target, log = ""):
     func = model["main"]
     if os.path.isfile(log):
         with autotvm.apply_history_best(log):
-            with relay.build_config(opt_level=3):
+            with relay.build_config(opt_level=4):
                 graph, lib, params = relay.build(func , target, params = relay_params)
     else:
-        with relay.build_config(opt_level=3):
+        with relay.build_config(opt_level=4):
             graph, lib, params = relay.build(func , target, params = relay_params)
 
         

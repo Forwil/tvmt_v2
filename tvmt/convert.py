@@ -15,5 +15,6 @@ if __name__ == "__main__":
     if arg.output == "":
         arg.output = "./relay_model/" + os.path.basename(arg.onnx) + "_" + arg.device + "_b" + str(arg.batch)
     if arg.log == "":
-        arg.log == "_notuned"
+        arg.log = "_notuned"
+    arg.log = os.path.basename(arg.log)
     save_model(graph, lib, params, arg.output + arg.log)
