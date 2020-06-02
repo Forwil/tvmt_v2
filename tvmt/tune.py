@@ -73,13 +73,21 @@ def tune_task(name, tasks, measure, resume_log_file = "tune.log", n_trial = 10):
             print("load log file:" + resume_log_file)
             tuner.load_history(autotvm.record.load_from_file(resume_log_file)) 
         n_try = min(n_trial, len(task.config_space))
+        callbacks = [
+            autotvm.callback.progress_bar(n_try, prefix = prefix),
+            autotvm.callback.log_to_file(resume_log_file)
+        ]
+        try:
+            import tvm.tvmt
+            log_db = resume_log_file + ".db"
+            callbacks.append(tvm.tvmt.log_to_sqlite(log_db))
+        except:
+            pass
         tuner.tune(n_trial = n_try,
                     early_stopping = 80,
                     measure_option = measure,
-                    callbacks = [
-                        autotvm.callback.progress_bar(n_try, prefix = prefix),
-                        autotvm.callback.log_to_file(resume_log_file)
-                    ])
+                    callbacks = callbacks
+                    )
     return 
 
 if __name__ == "__main__":
@@ -100,5 +108,5 @@ if __name__ == "__main__":
     print("Got %d task to tune" % (len(tasks)))
     for i in tasks:
         print(i.name, i.config_space)    
-    name = os.path.join("logs", os.path.basename(arg.onnx) + "_" + arg.device + "_" + str(arg.batch) +".log")
+    name = os.path.join("logs", os.path.basename(arg.onnx) + "_" + arg.device + "_" + str(arg.batch) + "_" + arg.flag + ".log")
     tune_task(arg.onnx, tasks, measure, resume_log_file = name, n_trial = arg.time)
