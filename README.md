@@ -1,5 +1,7 @@
 # tvmt_v2
 
+支持 tvm0.7.0-dev
+
 ## convert.py
 
 功能：将onnx模型转成relay模型，当输入log时候，则pick 最好的log，可以指定batch size
