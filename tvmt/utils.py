@@ -3,7 +3,7 @@ import tvm
 
 def create_target(device):
     if device == "x86":
-        target = tvm.target.create("llvm")
+        target = tvm.target.create("llvm -mcpu=core-avx2")
     elif device == "gpu":
         target = tvm.target.cuda()
     return target

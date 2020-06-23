@@ -40,21 +40,16 @@ def create_measure(device, flag = "t4"):
     elif device == 'x86':
         measure_option = autotvm.measure_option(
         builder=autotvm.LocalBuilder(),
- #       runner=autotvm.LocalRunner(number=5, repeat=1,
- #       min_repeat_ms=1000),
-       runner=autotvm.RPCRunner(
-        'x86',  # change the device key to your key
-        '0.0.0.0', 9190,
-        number=20, repeat=3, timeout=4, min_repeat_ms=150)
-
+        runner=autotvm.LocalRunner(number=5, repeat=1,
+        min_repeat_ms=1000),
        )
     elif device == 'gpu':
         measure_option = autotvm.measure_option(
-        builder=autotvm.LocalBuilder(timeout=100),
+        builder=autotvm.LocalBuilder(timeout=1000),
         runner=autotvm.RPCRunner(
         flag,  # change the device key to your key
         '0.0.0.0', 9190,
-        number=20, repeat=3, timeout=100, min_repeat_ms=150)
+        number=20, repeat=3, timeout=1000, min_repeat_ms=150)
         )
     return measure_option
 
@@ -66,7 +61,7 @@ def tune_task(name, tasks, measure, resume_log_file = "tune.log", n_trial = 10):
         os.mkdir(dir_name)
     except:
         pass
-    for idx , task in enumerate(reversed(tasks)):
+    for idx , task in enumerate(tasks):
         prefix = "[%s][Task %2d/%2d] " % (name, idx + 1, len(tasks) )
         tuner = XGBTuner(task, loss_type = 'rank')
         if os.path.isfile(resume_log_file):
