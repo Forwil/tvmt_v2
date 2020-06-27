@@ -1,9 +1,23 @@
 from utils import *
 from tvm import autotvm
 
-def get_tasks_from_onnx(on, input_shape, target):
+def get_tasks_from_onnx(on, input_shape, target, quantize='No'):
     from tvm import relay
-    mod, params = relay.frontend.from_onnx(on, input_shape) 
+    mod, params = relay.frontend.from_onnx(on, input_shape)
+    if arg.quantize == 'fp16' or arg.quantize == 'float16':
+        with relay.quantize.qconfig(skip_conv_layers=[0],
+                                    nbit_input=16,
+                                    nbit_weight=16,
+                                    nbit_activation=16,
+                                    global_scale=16.0,
+                                    dtype_input='float16',
+                                    dtype_weight='float16',
+                                    dtype_activation='float16'):
+            mod = relay.quantize.quantize(mod, params=params)
+    elif arg.quantize == 'int8':
+        with relay.quantize.qconfig(nbit_activation=8,
+                                    dtype_activation='int8'):
+            mod = relay.quantize.quantize(mod, params=params)
     func = mod["main"] 
     ops = [
         relay.op.get("nn.conv2d"),
@@ -94,12 +108,13 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--time", default=10, type = int)
     parser.add_argument("-b", "--batch", default=1, type = int)
     parser.add_argument("-f", "--flag", default="t4", type = str)
+    parser.add_argument("-q", "--quantize", default="No", type = str)
     arg = parser.parse_args()
 
     on, input_shape = get_onnx(arg.onnx,arg.batch)
     target = create_target(arg.device)
     measure = create_measure(arg.device, arg.flag)
-    tasks = get_tasks_from_onnx(on, input_shape, target)
+    tasks = get_tasks_from_onnx(on, input_shape, target, arg.quantize)
     print("Got %d task to tune" % (len(tasks)))
     for i in tasks:
         print(i.name, i.config_space)    
