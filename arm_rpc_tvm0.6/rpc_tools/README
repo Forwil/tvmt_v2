@@ -1,0 +1,10 @@
+
+To deploy models in arm or aarch64, please follow Tutorial of "Auto-tuning a convolutional network for ARM CPU" in 
+"https://tvm.apache.org/docs/tutorials/autotvm/tune_relay_arm.html#sphx-glr-tutorials-autotvm-tune-relay-arm-py"
+
+
+tracker.sh is for HOST
+
+trace.sh is for DEVICE 
+
+

@@ -6,7 +6,12 @@ def create_target(device):
         target = tvm.target.create("llvm -mcpu=core-avx2")
     elif device == "gpu":
         target = tvm.target.cuda()
+    elif device == "aarch64":
+        target = tvm.target.create('llvm -device=arm_cpu -target=aarch64-linux-gnu -mattr=+neon')
+    elif device == "arm":
+        target = tvm.target.create('llvm -device=arm_cpu -target=armv7l-linux-gnueabihf -mattr=+neon')
     return target
+
 
 def create_ctx(device, did = 0):
     if device == "x86":
