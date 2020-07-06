@@ -13,4 +13,11 @@ python3 speed.py --help可输出帮助信息
 
 输出：\[模型名字\] , \[耗时(ms)\]
 
+tune.py
+
+功能：对onnx模型进行autotune，可以指定device，tune的轮数，以及使用的batch size
+
+样例1：python3 tune.py xxx.onnx -d aarch64 -t 1000 -b 1 -f rasp3b
+
+输出：在logs目录下生成log，第二次启动会从logs中获取最好的参数进行继续训练
 
