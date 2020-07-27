@@ -1,0 +1,131 @@
+aarch64
+onnx
+resnet18_v2
+python3 relay_frontend.py --target aarch64 --framework onnx --model resnet18_v2
+ --> from src/relay/backend/build_module.cc
+-->Begin to DebugDumpGroup<--
+Dump of group info:
+v0.0.4
+fn (%data: Tensor[(1, 3, 224, 224), float32]) -> Tensor[(1, 1000), float32] {
+  %0 = add(%data, meta[relay.Constant][0] /* group=0x7fb6f10ae500 */ /* group=0x7fb6f10ae500 */) /* group=0x7fb6f10ae528 */;
+  %1 = nn.conv2d(%0, meta[relay.Constant][1] /* group=0x7fb6f10ae550 */ /* group=0x7fb6f10ae550 */, strides=[2, 2], padding=[3, 3], channels=64, kernel_size=[7, 7], kernel_layout="OIHW8o") /* group=0x7fb6f10ae5f0 */;
+  %2 = add(%1, meta[relay.Constant][2] /* group=0x7fb6f10ae5a0 */ /* group=0x7fb6f10ae5a0 */) /* group=0x7fb6f10ae5f0 */;
+  %3 = nn.relu(%2) /* group=0x7fb6f10ae5f0 */;
+  %4 = nn.max_pool2d(%3, pool_size=[3, 3], strides=[2, 2], padding=[1, 1]) /* group=0x7fb6f10ae618 */;
+  %5 = add(%4, meta[relay.Constant][3] /* group=0x7fb6f10ae640 */ /* group=0x7fb6f10ae640 */) /* group=0x7fb6f10ae690 */;
+  %6 = nn.relu(%5) /* group=0x7fb6f10ae690 */;
+  %7 = nn.contrib_conv2d_winograd_without_weight_transform(%6, meta[relay.Constant][4] /* group=0x7fb6f10ae6b8 */ /* group=0x7fb6f10ae6b8 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7fb6f10ae758 */;
+  %8 = add(%7, meta[relay.Constant][5] /* group=0x7fb6f10ae708 */ /* group=0x7fb6f10ae708 */) /* group=0x7fb6f10ae758 */;
+  %9 = nn.relu(%8) /* group=0x7fb6f10ae758 */;
+  %10 = nn.contrib_conv2d_winograd_without_weight_transform(%9, meta[relay.Constant][6] /* group=0x7fb6f10ae780 */ /* group=0x7fb6f10ae780 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7fb6f10ae7d0 */;
+  %11 = add(%10, %4) /* group=0x7fb6f10ae7d0 */;
+  %12 = multiply(%11, meta[relay.Constant][7] /* group=0x7fb6f10ae7f8 */ /* group=0x7fb6f10ae7f8 */) /* group=0x7fb6f10ae898 */;
+  %13 = add(%12, meta[relay.Constant][8] /* group=0x7fb6f10ae848 */ /* group=0x7fb6f10ae848 */) /* group=0x7fb6f10ae898 */;
+  %14 = nn.relu(%13) /* group=0x7fb6f10ae898 */;
+  %15 = nn.contrib_conv2d_winograd_without_weight_transform(%14, meta[relay.Constant][9] /* group=0x7fb6f10ae8c0 */ /* group=0x7fb6f10ae8c0 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7fb6f10ae960 */;
+  %16 = add(%15, meta[relay.Constant][10] /* group=0x7fb6f10ae910 */ /* group=0x7fb6f10ae910 */) /* group=0x7fb6f10ae960 */;
+  %17 = nn.relu(%16) /* group=0x7fb6f10ae960 */;
+  %18 = nn.contrib_conv2d_winograd_without_weight_transform(%17, meta[relay.Constant][11] /* group=0x7fb6f10ae988 */ /* group=0x7fb6f10ae988 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7fb6f10aea50 */;
+  %19 = add(%18, %11) /* group=0x7fb6f10aea50 */;
+  %20 = add(%19, meta[relay.Constant][12] /* group=0x7fb6f10aea00 */ /* group=0x7fb6f10aea00 */) /* group=0x7fb6f10aea50 */;
+  %21 = nn.relu(%20) /* group=0x7fb6f10aea50 */;
+  %22 = nn.conv2d(%21, meta[relay.Constant][13] /* group=0x7fb6f10aea78 */ /* group=0x7fb6f10aea78 */, strides=[2, 2], padding=[1, 1], channels=128, kernel_size=[3, 3], kernel_layout="OIHW8o") /* group=0x7fb6f10aeb18 */;
+  %23 = add(%22, meta[relay.Constant][14] /* group=0x7fb6f10aeac8 */ /* group=0x7fb6f10aeac8 */) /* group=0x7fb6f10aeb18 */;
+  %24 = nn.relu(%23) /* group=0x7fb6f10aeb18 */;
+  %25 = nn.contrib_conv2d_winograd_without_weight_transform(%24, meta[relay.Constant][15] /* group=0x7fb6f10aeb40 */ /* group=0x7fb6f10aeb40 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7fb6f10aebe0 */;
+  %26 = nn.conv2d(%21, meta[relay.Constant][16] /* group=0x7fb6f10aeb90 */ /* group=0x7fb6f10aeb90 */, strides=[2, 2], channels=128, kernel_size=[1, 1], kernel_layout="OIHW16o") /* group=0x7fb6f10aebb8 */;
+  %27 = add(%25, %26) /* group=0x7fb6f10aebe0 */;
+  %28 = add(%27, meta[relay.Constant][17] /* group=0x7fb6f10aec08 */ /* group=0x7fb6f10aec08 */) /* group=0x7fb6f10aec58 */;
+  %29 = nn.relu(%28) /* group=0x7fb6f10aec58 */;
+  %30 = nn.contrib_conv2d_winograd_without_weight_transform(%29, meta[relay.Constant][18] /* group=0x7fb6f10aec80 */ /* group=0x7fb6f10aec80 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7fb6f10aed20 */;
+  %31 = add(%30, meta[relay.Constant][19] /* group=0x7fb6f10aecd0 */ /* group=0x7fb6f10aecd0 */) /* group=0x7fb6f10aed20 */;
+  %32 = nn.relu(%31) /* group=0x7fb6f10aed20 */;
+  %33 = nn.contrib_conv2d_winograd_without_weight_transform(%32, meta[relay.Constant][20] /* group=0x7fb6f10aed48 */ /* group=0x7fb6f10aed48 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7fb6f10aee10 */;
+  %34 = add(%33, %27) /* group=0x7fb6f10aee10 */;
+  %35 = add(%34, meta[relay.Constant][21] /* group=0x7fb6f10aedc0 */ /* group=0x7fb6f10aedc0 */) /* group=0x7fb6f10aee10 */;
+  %36 = nn.relu(%35) /* group=0x7fb6f10aee10 */;
+  %37 = nn.conv2d(%36, meta[relay.Constant][22] /* group=0x7fb6f10aee38 */ /* group=0x7fb6f10aee38 */, strides=[2, 2], padding=[1, 1], channels=256, kernel_size=[3, 3], kernel_layout="OIHW8o") /* group=0x7fb6f10aeed8 */;
+  %38 = add(%37, meta[relay.Constant][23] /* group=0x7fb6f10aee88 */ /* group=0x7fb6f10aee88 */) /* group=0x7fb6f10aeed8 */;
+  %39 = nn.relu(%38) /* group=0x7fb6f10aeed8 */;
+  %40 = nn.contrib_conv2d_winograd_without_weight_transform(%39, meta[relay.Constant][24] /* group=0x7fb6f10aef00 */ /* group=0x7fb6f10aef00 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7fb6f10aefa0 */;
+  %41 = nn.conv2d(%36, meta[relay.Constant][25] /* group=0x7fb6f10aef50 */ /* group=0x7fb6f10aef50 */, strides=[2, 2], channels=256, kernel_size=[1, 1], kernel_layout="OIHW16o") /* group=0x7fb6f10aef78 */;
+  %42 = add(%40, %41) /* group=0x7fb6f10aefa0 */;
+  %43 = add(%42, meta[relay.Constant][26] /* group=0x7fb6f10aefc8 */ /* group=0x7fb6f10aefc8 */) /* group=0x7fb6f10af018 */;
+  %44 = nn.relu(%43) /* group=0x7fb6f10af018 */;
+  %45 = nn.contrib_conv2d_winograd_without_weight_transform(%44, meta[relay.Constant][27] /* group=0x7fb6f10af040 */ /* group=0x7fb6f10af040 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7fb6f10af0e0 */;
+  %46 = add(%45, meta[relay.Constant][28] /* group=0x7fb6f10af090 */ /* group=0x7fb6f10af090 */) /* group=0x7fb6f10af0e0 */;
+  %47 = nn.relu(%46) /* group=0x7fb6f10af0e0 */;
+  %48 = nn.contrib_conv2d_winograd_without_weight_transform(%47, meta[relay.Constant][29] /* group=0x7fb6f10af108 */ /* group=0x7fb6f10af108 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7fb6f10af1d0 */;
+  %49 = add(%48, %42) /* group=0x7fb6f10af1d0 */;
+  %50 = add(%49, meta[relay.Constant][30] /* group=0x7fb6f10af180 */ /* group=0x7fb6f10af180 */) /* group=0x7fb6f10af1d0 */;
+  %51 = nn.relu(%50) /* group=0x7fb6f10af1d0 */;
+  %52 = nn.conv2d(%51, meta[relay.Constant][31] /* group=0x7fb6f10af1f8 */ /* group=0x7fb6f10af1f8 */, strides=[2, 2], padding=[1, 1], channels=512, kernel_size=[3, 3], kernel_layout="OIHW8o") /* group=0x7fb6f10af298 */;
+  %53 = add(%52, meta[relay.Constant][32] /* group=0x7fb6f10af248 */ /* group=0x7fb6f10af248 */) /* group=0x7fb6f10af298 */;
+  %54 = nn.relu(%53) /* group=0x7fb6f10af298 */;
+  %55 = nn.contrib_conv2d_winograd_without_weight_transform(%54, meta[relay.Constant][33] /* group=0x7fb6f10af2c0 */ /* group=0x7fb6f10af2c0 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7fb6f10af360 */;
+  %56 = nn.conv2d(%51, meta[relay.Constant][34] /* group=0x7fb6f10af310 */ /* group=0x7fb6f10af310 */, strides=[2, 2], channels=512, kernel_size=[1, 1], kernel_layout="OIHW16o") /* group=0x7fb6f10af338 */;
+  %57 = add(%55, %56) /* group=0x7fb6f10af360 */;
+  %58 = add(%57, meta[relay.Constant][35] /* group=0x7fb6f10af388 */ /* group=0x7fb6f10af388 */) /* group=0x7fb6f10af3d8 */;
+  %59 = nn.relu(%58) /* group=0x7fb6f10af3d8 */;
+  %60 = nn.contrib_conv2d_winograd_without_weight_transform(%59, meta[relay.Constant][36] /* group=0x7fb6f10af400 */ /* group=0x7fb6f10af400 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7fb6f10af4a0 */;
+  %61 = add(%60, meta[relay.Constant][37] /* group=0x7fb6f10af450 */ /* group=0x7fb6f10af450 */) /* group=0x7fb6f10af4a0 */;
+  %62 = nn.relu(%61) /* group=0x7fb6f10af4a0 */;
+  %63 = nn.contrib_conv2d_winograd_without_weight_transform(%62, meta[relay.Constant][38] /* group=0x7fb6f10af4c8 */ /* group=0x7fb6f10af4c8 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7fb6f10af5e0 */;
+  %64 = add(%63, %57) /* group=0x7fb6f10af5e0 */;
+  %65 = multiply(%64, meta[relay.Constant][39] /* group=0x7fb6f10af540 */ /* group=0x7fb6f10af540 */) /* group=0x7fb6f10af5e0 */;
+  %66 = add(%65, meta[relay.Constant][40] /* group=0x7fb6f10af590 */ /* group=0x7fb6f10af590 */) /* group=0x7fb6f10af5e0 */;
+  %67 = nn.relu(%66) /* group=0x7fb6f10af5e0 */;
+  %68 = nn.global_avg_pool2d(%67) /* group=0x7fb6f10af608 */;
+  %69 = nn.batch_flatten(%68) /* group=0x7fb6f10af6a8 */;
+  %70 = nn.batch_flatten(%69) /* group=0x7fb6f10af6a8 */;
+  %71 = nn.batch_flatten(%70) /* group=0x7fb6f10af6a8 */;
+  %72 = multiply(1f /* group=0x7fb6f10af6a8 */, %71) /* group=0x7fb6f10af6a8 */;
+  %73 = nn.dense(%72, meta[relay.Constant][41] /* group=0x7fb6f10af6d0 */ /* group=0x7fb6f10af6d0 */, units=1000) /* group=0x7fb6f10af748 */;
+  %74 = add(%73, meta[relay.Constant][42] /* group=0x7fb6f10af720 */ /* group=0x7fb6f10af720 */) /* group=0x7fb6f10af748 */;
+  nn.softmax(%74) /* group=0x7fb6f10af770 */
+}
+// meta data omitted. you can use show_meta_data=True to include meta data
+-->End of DebugDumpGroup<--
+from src/relay/backend/build_module.cc PackedFunc GetGraphJSON()
+from src/relay/backend/build_module.cc std::string& GetGraphJSON()
+from relay/build_module.py BuildModule(object)
+Namespace(batch_size=1, framework='onnx', model='resnet18_v2', target='aarch64')
+ ---------> onnx <----------------- 
+ ---------------------------------- 
+from relay/build_module.py build
+from relay/build_module.py BuildModule.build(...)
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
