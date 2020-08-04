@@ -44,3 +44,26 @@ def speed_rpc(graph, lib, params, ctx):
     prof_res = np.array(ftimer().results) * 1000
     return np.mean(prof_res)
 
+
+def speed_rpc_profile(graph, lib, params, ctx):
+    import numpy as np
+    #import tvm.contrib.graph_runtime as runtime
+    import json
+    graph_dict = json.loads(graph)
+    input_shape = graph_dict["attrs"]["shape"][1][0]
+    input_name = graph_dict["nodes"][0]["name"]
+    data_tvm = tvm.nd.array(np.random.uniform(size = input_shape).astype("float32"))
+    from tvm.contrib.debugger import debug_runtime as runtime
+    print("use debug_runtime")
+    module = runtime.create(graph, lib, ctx)
+    module.set_input(input_name, data_tvm)
+
+    #module.load_params(params)
+    module.set_input(**params)
+
+    #ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 100)
+    ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 10)
+    prof_res = np.array(ftimer().results) * 1000
+    return np.mean(prof_res)
+
+

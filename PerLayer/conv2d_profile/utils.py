@@ -3,7 +3,14 @@ import tvm
 
 def create_target(device):
     if device == "x86":
+        print("from x86")
         target = tvm.target.create("llvm -mcpu=core-avx2")
+    elif device == "x86-avx2":
+        print("from x86-avx2")
+        target = tvm.target.create("llvm -mcpu=core-avx2")
+    elif device == "x86-avx512":
+        print("from x86-avx-512")
+        target = tvm.target.create("llvm -mcpu=skylake-avx512")
     elif device == "gpu":
         target = tvm.target.cuda()
     elif device == "aarch64":
@@ -14,7 +21,8 @@ def create_target(device):
 
 
 def create_ctx(device, did = 0):
-    if device == "x86":
+    print('ctx on device ' + device)
+    if 'x86' in device :
         ctx = tvm.cpu(did)
     elif device == "gpu":
         ctx = tvm.gpu(did)
@@ -30,7 +38,8 @@ def speed(graph, lib, params, ctx):
     data_tvm = tvm.nd.array(np.random.uniform(size = input_shape).astype("float32"))
     module = runtime.create(graph, lib, ctx)
     module.set_input(input_name, data_tvm)
-    module.load_params(params)
+    #module.load_params(params)
+    module.set_input(**params)
     ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 100)
     prof_res = np.array(ftimer().results) * 1000
     return np.mean(prof_res)
@@ -46,7 +55,8 @@ def speed_profile(graph, lib, params, ctx):
     data_tvm = tvm.nd.array(np.random.uniform(size = input_shape).astype("float32"))
     module = runtime.create(graph, lib, ctx)
     module.set_input(input_name, data_tvm)
-    module.load_params(params)
+    #module.load_params(params)
+    module.set_input(**params)
     ftimer = module.module.time_evaluator("run", ctx, number = 1, repeat = 100)
     prof_res = np.array(ftimer().results) * 1000
     # profile

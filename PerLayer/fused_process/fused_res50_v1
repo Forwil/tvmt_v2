@@ -1,0 +1,1190 @@
+layer id    : ['%0 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%data, meta[relay.Constant][0] /* group=0x7f8b039e63e0 */ /* group=0x7f8b039e63e0 */, strides=[2, 2], padding=[3, 3], channels=64, kernel_size=[7, 7], kernel_layout="OIHW8o")']
+layer group : ['%0 ']
+
+layer id    : ['%1 ']
+layer op    : ['add']
+layer input : ['(%0, meta[relay.Constant][1] /* group=0x7f8b039e6430 */ /* group=0x7f8b039e6430 */)']
+layer group : ['%0 ']
+
+layer id    : ['%2 ']
+layer op    : ['nn.relu']
+layer input : ['(%1)']
+layer group : ['%0 ']
+
+layer id    : ['%3 ']
+layer op    : ['nn.max_pool2d']
+layer input : ['(%2, pool_size=[3, 3], strides=[2, 2], padding=[1, 1])']
+layer group : ['%3 ']
+
+layer id    : ['%4 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%3, meta[relay.Constant][2] /* group=0x7f8b039e64d0 */ /* group=0x7f8b039e64d0 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%4 ']
+
+layer id    : ['%5 ']
+layer op    : ['add']
+layer input : ['(%4, meta[relay.Constant][3] /* group=0x7f8b039e6520 */ /* group=0x7f8b039e6520 */)']
+layer group : ['%4 ']
+
+layer id    : ['%6 ']
+layer op    : ['add']
+layer input : ['(%5, meta[relay.Constant][4] /* group=0x7f8b039e6570 */ /* group=0x7f8b039e6570 */)']
+layer group : ['%4 ']
+
+layer id    : ['%7 ']
+layer op    : ['nn.relu']
+layer input : ['(%6)']
+layer group : ['%4 ']
+
+layer id    : ['%8 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%7, meta[relay.Constant][5] /* group=0x7f8b039e65e8 */ /* group=0x7f8b039e65e8 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3])']
+layer group : ['%8 ']
+
+layer id    : ['%9 ']
+layer op    : ['add']
+layer input : ['(%8, meta[relay.Constant][6] /* group=0x7f8b039e6638 */ /* group=0x7f8b039e6638 */)']
+layer group : ['%8 ']
+
+layer id    : ['%10 ']
+layer op    : ['nn.relu']
+layer input : ['(%9)']
+layer group : ['%8 ']
+
+layer id    : ['%11 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%10, meta[relay.Constant][7] /* group=0x7f8b039e66b0 */ /* group=0x7f8b039e66b0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%11 ']
+
+layer id    : ['%12 ']
+layer op    : ['add']
+layer input : ['(%11, meta[relay.Constant][8] /* group=0x7f8b039e6700 */ /* group=0x7f8b039e6700 */)']
+layer group : ['%11 ']
+
+layer id    : ['%13 ']
+layer op    : ['multiply']
+layer input : ['(%12, meta[relay.Constant][9] /* group=0x7f8b039e6750 */ /* group=0x7f8b039e6750 */)']
+layer group : ['%11 ']
+
+layer id    : ['%14 ']
+layer op    : ['add']
+layer input : ['(%13, meta[relay.Constant][10] /* group=0x7f8b039e67a0 */ /* group=0x7f8b039e67a0 */)']
+layer group : ['%11 ']
+
+layer id    : ['%15 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%3, meta[relay.Constant][11] /* group=0x7f8b039e67f0 */ /* group=0x7f8b039e67f0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%15 ']
+
+layer id    : ['%16 ']
+layer op    : ['add']
+layer input : ['(%15, meta[relay.Constant][12] /* group=0x7f8b039e6840 */ /* group=0x7f8b039e6840 */)']
+layer group : ['%15 ']
+
+layer id    : ['%17 ']
+layer op    : ['add']
+layer input : ['(%14, %16)']
+layer group : ['%11 ']
+
+layer id    : ['%18 ']
+layer op    : ['nn.relu']
+layer input : ['(%17)']
+layer group : ['%11 ']
+
+layer id    : ['%19 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%18, meta[relay.Constant][13] /* group=0x7f8b039e68e0 */ /* group=0x7f8b039e68e0 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%19 ']
+
+layer id    : ['%20 ']
+layer op    : ['add']
+layer input : ['(%19, meta[relay.Constant][14] /* group=0x7f8b039e6930 */ /* group=0x7f8b039e6930 */)']
+layer group : ['%19 ']
+
+layer id    : ['%21 ']
+layer op    : ['add']
+layer input : ['(%20, meta[relay.Constant][15] /* group=0x7f8b039e6980 */ /* group=0x7f8b039e6980 */)']
+layer group : ['%19 ']
+
+layer id    : ['%22 ']
+layer op    : ['nn.relu']
+layer input : ['(%21)']
+layer group : ['%19 ']
+
+layer id    : ['%23 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%22, meta[relay.Constant][16] /* group=0x7f8b039e69f8 */ /* group=0x7f8b039e69f8 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3])']
+layer group : ['%23 ']
+
+layer id    : ['%24 ']
+layer op    : ['add']
+layer input : ['(%23, meta[relay.Constant][17] /* group=0x7f8b039e6a48 */ /* group=0x7f8b039e6a48 */)']
+layer group : ['%23 ']
+
+layer id    : ['%25 ']
+layer op    : ['nn.relu']
+layer input : ['(%24)']
+layer group : ['%23 ']
+
+layer id    : ['%26 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%25, meta[relay.Constant][18] /* group=0x7f8b039e6ac0 */ /* group=0x7f8b039e6ac0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%26 ']
+
+layer id    : ['%27 ']
+layer op    : ['add']
+layer input : ['(%26, meta[relay.Constant][19] /* group=0x7f8b039e6b10 */ /* group=0x7f8b039e6b10 */)']
+layer group : ['%26 ']
+
+layer id    : ['%28 ']
+layer op    : ['multiply']
+layer input : ['(%27, meta[relay.Constant][20] /* group=0x7f8b039e6b60 */ /* group=0x7f8b039e6b60 */)']
+layer group : ['%26 ']
+
+layer id    : ['%29 ']
+layer op    : ['add']
+layer input : ['(%28, meta[relay.Constant][21] /* group=0x7f8b039e6bb0 */ /* group=0x7f8b039e6bb0 */)']
+layer group : ['%26 ']
+
+layer id    : ['%30 ']
+layer op    : ['add']
+layer input : ['(%29, %18)']
+layer group : ['%26 ']
+
+layer id    : ['%31 ']
+layer op    : ['nn.relu']
+layer input : ['(%30)']
+layer group : ['%26 ']
+
+layer id    : ['%32 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%31, meta[relay.Constant][22] /* group=0x7f8b039e6c50 */ /* group=0x7f8b039e6c50 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%32 ']
+
+layer id    : ['%33 ']
+layer op    : ['add']
+layer input : ['(%32, meta[relay.Constant][23] /* group=0x7f8b039e6ca0 */ /* group=0x7f8b039e6ca0 */)']
+layer group : ['%32 ']
+
+layer id    : ['%34 ']
+layer op    : ['add']
+layer input : ['(%33, meta[relay.Constant][24] /* group=0x7f8b039e6cf0 */ /* group=0x7f8b039e6cf0 */)']
+layer group : ['%32 ']
+
+layer id    : ['%35 ']
+layer op    : ['nn.relu']
+layer input : ['(%34)']
+layer group : ['%32 ']
+
+layer id    : ['%36 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%35, meta[relay.Constant][25] /* group=0x7f8b039e6d68 */ /* group=0x7f8b039e6d68 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3])']
+layer group : ['%36 ']
+
+layer id    : ['%37 ']
+layer op    : ['add']
+layer input : ['(%36, meta[relay.Constant][26] /* group=0x7f8b039e6db8 */ /* group=0x7f8b039e6db8 */)']
+layer group : ['%36 ']
+
+layer id    : ['%38 ']
+layer op    : ['nn.relu']
+layer input : ['(%37)']
+layer group : ['%36 ']
+
+layer id    : ['%39 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%38, meta[relay.Constant][27] /* group=0x7f8b039e6e30 */ /* group=0x7f8b039e6e30 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%39 ']
+
+layer id    : ['%40 ']
+layer op    : ['add']
+layer input : ['(%39, meta[relay.Constant][28] /* group=0x7f8b039e6e80 */ /* group=0x7f8b039e6e80 */)']
+layer group : ['%39 ']
+
+layer id    : ['%41 ']
+layer op    : ['multiply']
+layer input : ['(%40, meta[relay.Constant][29] /* group=0x7f8b039e6ed0 */ /* group=0x7f8b039e6ed0 */)']
+layer group : ['%39 ']
+
+layer id    : ['%42 ']
+layer op    : ['add']
+layer input : ['(%41, meta[relay.Constant][30] /* group=0x7f8b039e6f20 */ /* group=0x7f8b039e6f20 */)']
+layer group : ['%39 ']
+
+layer id    : ['%43 ']
+layer op    : ['add']
+layer input : ['(%42, %31)']
+layer group : ['%39 ']
+
+layer id    : ['%44 ']
+layer op    : ['nn.relu']
+layer input : ['(%43)']
+layer group : ['%39 ']
+
+layer id    : ['%45 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%44, meta[relay.Constant][31] /* group=0x7f8b039e6fc0 */ /* group=0x7f8b039e6fc0 */, strides=[2, 2], channels=128, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%45 ']
+
+layer id    : ['%46 ']
+layer op    : ['add']
+layer input : ['(%45, meta[relay.Constant][32] /* group=0x7f8b039e7010 */ /* group=0x7f8b039e7010 */)']
+layer group : ['%45 ']
+
+layer id    : ['%47 ']
+layer op    : ['add']
+layer input : ['(%46, meta[relay.Constant][33] /* group=0x7f8b039e7060 */ /* group=0x7f8b039e7060 */)']
+layer group : ['%45 ']
+
+layer id    : ['%48 ']
+layer op    : ['nn.relu']
+layer input : ['(%47)']
+layer group : ['%45 ']
+
+layer id    : ['%49 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%48, meta[relay.Constant][34] /* group=0x7f8b039e70d8 */ /* group=0x7f8b039e70d8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3])']
+layer group : ['%49 ']
+
+layer id    : ['%50 ']
+layer op    : ['add']
+layer input : ['(%49, meta[relay.Constant][35] /* group=0x7f8b039e7128 */ /* group=0x7f8b039e7128 */)']
+layer group : ['%49 ']
+
+layer id    : ['%51 ']
+layer op    : ['nn.relu']
+layer input : ['(%50)']
+layer group : ['%49 ']
+
+layer id    : ['%52 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%51, meta[relay.Constant][36] /* group=0x7f8b039e71a0 */ /* group=0x7f8b039e71a0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%52 ']
+
+layer id    : ['%53 ']
+layer op    : ['add']
+layer input : ['(%52, meta[relay.Constant][37] /* group=0x7f8b039e71f0 */ /* group=0x7f8b039e71f0 */)']
+layer group : ['%52 ']
+
+layer id    : ['%54 ']
+layer op    : ['multiply']
+layer input : ['(%53, meta[relay.Constant][38] /* group=0x7f8b039e7240 */ /* group=0x7f8b039e7240 */)']
+layer group : ['%52 ']
+
+layer id    : ['%55 ']
+layer op    : ['add']
+layer input : ['(%54, meta[relay.Constant][39] /* group=0x7f8b039e7290 */ /* group=0x7f8b039e7290 */)']
+layer group : ['%52 ']
+
+layer id    : ['%56 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%44, meta[relay.Constant][40] /* group=0x7f8b039e72e0 */ /* group=0x7f8b039e72e0 */, strides=[2, 2], channels=512, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%56 ']
+
+layer id    : ['%57 ']
+layer op    : ['add']
+layer input : ['(%56, meta[relay.Constant][41] /* group=0x7f8b039e7330 */ /* group=0x7f8b039e7330 */)']
+layer group : ['%56 ']
+
+layer id    : ['%58 ']
+layer op    : ['add']
+layer input : ['(%55, %57)']
+layer group : ['%52 ']
+
+layer id    : ['%59 ']
+layer op    : ['nn.relu']
+layer input : ['(%58)']
+layer group : ['%52 ']
+
+layer id    : ['%60 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%59, meta[relay.Constant][42] /* group=0x7f8b039e73d0 */ /* group=0x7f8b039e73d0 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%60 ']
+
+layer id    : ['%61 ']
+layer op    : ['add']
+layer input : ['(%60, meta[relay.Constant][43] /* group=0x7f8b039e7420 */ /* group=0x7f8b039e7420 */)']
+layer group : ['%60 ']
+
+layer id    : ['%62 ']
+layer op    : ['add']
+layer input : ['(%61, meta[relay.Constant][44] /* group=0x7f8b039e7470 */ /* group=0x7f8b039e7470 */)']
+layer group : ['%60 ']
+
+layer id    : ['%63 ']
+layer op    : ['nn.relu']
+layer input : ['(%62)']
+layer group : ['%60 ']
+
+layer id    : ['%64 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%63, meta[relay.Constant][45] /* group=0x7f8b039e74e8 */ /* group=0x7f8b039e74e8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3])']
+layer group : ['%64 ']
+
+layer id    : ['%65 ']
+layer op    : ['add']
+layer input : ['(%64, meta[relay.Constant][46] /* group=0x7f8b039e7538 */ /* group=0x7f8b039e7538 */)']
+layer group : ['%64 ']
+
+layer id    : ['%66 ']
+layer op    : ['nn.relu']
+layer input : ['(%65)']
+layer group : ['%64 ']
+
+layer id    : ['%67 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%66, meta[relay.Constant][47] /* group=0x7f8b039e75b0 */ /* group=0x7f8b039e75b0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%67 ']
+
+layer id    : ['%68 ']
+layer op    : ['add']
+layer input : ['(%67, meta[relay.Constant][48] /* group=0x7f8b039e7600 */ /* group=0x7f8b039e7600 */)']
+layer group : ['%67 ']
+
+layer id    : ['%69 ']
+layer op    : ['multiply']
+layer input : ['(%68, meta[relay.Constant][49] /* group=0x7f8b039e7650 */ /* group=0x7f8b039e7650 */)']
+layer group : ['%67 ']
+
+layer id    : ['%70 ']
+layer op    : ['add']
+layer input : ['(%69, meta[relay.Constant][50] /* group=0x7f8b039e76a0 */ /* group=0x7f8b039e76a0 */)']
+layer group : ['%67 ']
+
+layer id    : ['%71 ']
+layer op    : ['add']
+layer input : ['(%70, %59)']
+layer group : ['%67 ']
+
+layer id    : ['%72 ']
+layer op    : ['nn.relu']
+layer input : ['(%71)']
+layer group : ['%67 ']
+
+layer id    : ['%73 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%72, meta[relay.Constant][51] /* group=0x7f8b039e7740 */ /* group=0x7f8b039e7740 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%73 ']
+
+layer id    : ['%74 ']
+layer op    : ['add']
+layer input : ['(%73, meta[relay.Constant][52] /* group=0x7f8b039e7790 */ /* group=0x7f8b039e7790 */)']
+layer group : ['%73 ']
+
+layer id    : ['%75 ']
+layer op    : ['add']
+layer input : ['(%74, meta[relay.Constant][53] /* group=0x7f8b039e77e0 */ /* group=0x7f8b039e77e0 */)']
+layer group : ['%73 ']
+
+layer id    : ['%76 ']
+layer op    : ['nn.relu']
+layer input : ['(%75)']
+layer group : ['%73 ']
+
+layer id    : ['%77 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%76, meta[relay.Constant][54] /* group=0x7f8b039e7858 */ /* group=0x7f8b039e7858 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3])']
+layer group : ['%77 ']
+
+layer id    : ['%78 ']
+layer op    : ['add']
+layer input : ['(%77, meta[relay.Constant][55] /* group=0x7f8b039e78a8 */ /* group=0x7f8b039e78a8 */)']
+layer group : ['%77 ']
+
+layer id    : ['%79 ']
+layer op    : ['nn.relu']
+layer input : ['(%78)']
+layer group : ['%77 ']
+
+layer id    : ['%80 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%79, meta[relay.Constant][56] /* group=0x7f8b039e7920 */ /* group=0x7f8b039e7920 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%80 ']
+
+layer id    : ['%81 ']
+layer op    : ['add']
+layer input : ['(%80, meta[relay.Constant][57] /* group=0x7f8b039e7970 */ /* group=0x7f8b039e7970 */)']
+layer group : ['%80 ']
+
+layer id    : ['%82 ']
+layer op    : ['multiply']
+layer input : ['(%81, meta[relay.Constant][58] /* group=0x7f8b039e79c0 */ /* group=0x7f8b039e79c0 */)']
+layer group : ['%80 ']
+
+layer id    : ['%83 ']
+layer op    : ['add']
+layer input : ['(%82, meta[relay.Constant][59] /* group=0x7f8b039e7a10 */ /* group=0x7f8b039e7a10 */)']
+layer group : ['%80 ']
+
+layer id    : ['%84 ']
+layer op    : ['add']
+layer input : ['(%83, %72)']
+layer group : ['%80 ']
+
+layer id    : ['%85 ']
+layer op    : ['nn.relu']
+layer input : ['(%84)']
+layer group : ['%80 ']
+
+layer id    : ['%86 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%85, meta[relay.Constant][60] /* group=0x7f8b039e7ab0 */ /* group=0x7f8b039e7ab0 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%86 ']
+
+layer id    : ['%87 ']
+layer op    : ['add']
+layer input : ['(%86, meta[relay.Constant][61] /* group=0x7f8b039e7b00 */ /* group=0x7f8b039e7b00 */)']
+layer group : ['%86 ']
+
+layer id    : ['%88 ']
+layer op    : ['add']
+layer input : ['(%87, meta[relay.Constant][62] /* group=0x7f8b039e7b50 */ /* group=0x7f8b039e7b50 */)']
+layer group : ['%86 ']
+
+layer id    : ['%89 ']
+layer op    : ['nn.relu']
+layer input : ['(%88)']
+layer group : ['%86 ']
+
+layer id    : ['%90 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%89, meta[relay.Constant][63] /* group=0x7f8b039e7bc8 */ /* group=0x7f8b039e7bc8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3])']
+layer group : ['%90 ']
+
+layer id    : ['%91 ']
+layer op    : ['add']
+layer input : ['(%90, meta[relay.Constant][64] /* group=0x7f8b039e7c18 */ /* group=0x7f8b039e7c18 */)']
+layer group : ['%90 ']
+
+layer id    : ['%92 ']
+layer op    : ['nn.relu']
+layer input : ['(%91)']
+layer group : ['%90 ']
+
+layer id    : ['%93 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%92, meta[relay.Constant][65] /* group=0x7f8b039e7c90 */ /* group=0x7f8b039e7c90 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%93 ']
+
+layer id    : ['%94 ']
+layer op    : ['add']
+layer input : ['(%93, meta[relay.Constant][66] /* group=0x7f8b039e7ce0 */ /* group=0x7f8b039e7ce0 */)']
+layer group : ['%93 ']
+
+layer id    : ['%95 ']
+layer op    : ['multiply']
+layer input : ['(%94, meta[relay.Constant][67] /* group=0x7f8b039e7d30 */ /* group=0x7f8b039e7d30 */)']
+layer group : ['%93 ']
+
+layer id    : ['%96 ']
+layer op    : ['add']
+layer input : ['(%95, meta[relay.Constant][68] /* group=0x7f8b039e7d80 */ /* group=0x7f8b039e7d80 */)']
+layer group : ['%93 ']
+
+layer id    : ['%97 ']
+layer op    : ['add']
+layer input : ['(%96, %85)']
+layer group : ['%93 ']
+
+layer id    : ['%98 ']
+layer op    : ['nn.relu']
+layer input : ['(%97)']
+layer group : ['%93 ']
+
+layer id    : ['%99 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%98, meta[relay.Constant][69] /* group=0x7f8b039e7e20 */ /* group=0x7f8b039e7e20 */, strides=[2, 2], channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%99 ']
+
+layer id    : ['%100 ']
+layer op    : ['add']
+layer input : ['(%99, meta[relay.Constant][70] /* group=0x7f8b039e7e70 */ /* group=0x7f8b039e7e70 */)']
+layer group : ['%99 ']
+
+layer id    : ['%101 ']
+layer op    : ['add']
+layer input : ['(%100, meta[relay.Constant][71] /* group=0x7f8b039e7ec0 */ /* group=0x7f8b039e7ec0 */)']
+layer group : ['%99 ']
+
+layer id    : ['%102 ']
+layer op    : ['nn.relu']
+layer input : ['(%101)']
+layer group : ['%99 ']
+
+layer id    : ['%103 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%102, meta[relay.Constant][72] /* group=0x7f8b039e7f38 */ /* group=0x7f8b039e7f38 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%103 ']
+
+layer id    : ['%104 ']
+layer op    : ['add']
+layer input : ['(%103, meta[relay.Constant][73] /* group=0x7f8b039e7f88 */ /* group=0x7f8b039e7f88 */)']
+layer group : ['%103 ']
+
+layer id    : ['%105 ']
+layer op    : ['nn.relu']
+layer input : ['(%104)']
+layer group : ['%103 ']
+
+layer id    : ['%106 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%105, meta[relay.Constant][74] /* group=0x7f8b038e2c10 */ /* group=0x7f8b038e2c10 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%106 ']
+
+layer id    : ['%107 ']
+layer op    : ['add']
+layer input : ['(%106, meta[relay.Constant][75] /* group=0x7f8b038e2c60 */ /* group=0x7f8b038e2c60 */)']
+layer group : ['%106 ']
+
+layer id    : ['%108 ']
+layer op    : ['multiply']
+layer input : ['(%107, meta[relay.Constant][76] /* group=0x7f8b038e2cb0 */ /* group=0x7f8b038e2cb0 */)']
+layer group : ['%106 ']
+
+layer id    : ['%109 ']
+layer op    : ['add']
+layer input : ['(%108, meta[relay.Constant][77] /* group=0x7f8b038e2d00 */ /* group=0x7f8b038e2d00 */)']
+layer group : ['%106 ']
+
+layer id    : ['%110 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%98, meta[relay.Constant][78] /* group=0x7f8b038e2d50 */ /* group=0x7f8b038e2d50 */, strides=[2, 2], channels=1024, kernel_size=[1, 1], kernel_layout="OIHW16o")']
+layer group : ['%110 ']
+
+layer id    : ['%111 ']
+layer op    : ['add']
+layer input : ['(%110, meta[relay.Constant][79] /* group=0x7f8b038e2da0 */ /* group=0x7f8b038e2da0 */)']
+layer group : ['%110 ']
+
+layer id    : ['%112 ']
+layer op    : ['add']
+layer input : ['(%109, %111)']
+layer group : ['%106 ']
+
+layer id    : ['%113 ']
+layer op    : ['nn.relu']
+layer input : ['(%112)']
+layer group : ['%106 ']
+
+layer id    : ['%114 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%113, meta[relay.Constant][80] /* group=0x7f8b038e2e40 */ /* group=0x7f8b038e2e40 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%114 ']
+
+layer id    : ['%115 ']
+layer op    : ['add']
+layer input : ['(%114, meta[relay.Constant][81] /* group=0x7f8b038e2e90 */ /* group=0x7f8b038e2e90 */)']
+layer group : ['%114 ']
+
+layer id    : ['%116 ']
+layer op    : ['add']
+layer input : ['(%115, meta[relay.Constant][82] /* group=0x7f8b038e2ee0 */ /* group=0x7f8b038e2ee0 */)']
+layer group : ['%114 ']
+
+layer id    : ['%117 ']
+layer op    : ['nn.relu']
+layer input : ['(%116)']
+layer group : ['%114 ']
+
+layer id    : ['%118 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%117, meta[relay.Constant][83] /* group=0x7f8b038e2f58 */ /* group=0x7f8b038e2f58 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%118 ']
+
+layer id    : ['%119 ']
+layer op    : ['add']
+layer input : ['(%118, meta[relay.Constant][84] /* group=0x7f8b038e2fa8 */ /* group=0x7f8b038e2fa8 */)']
+layer group : ['%118 ']
+
+layer id    : ['%120 ']
+layer op    : ['nn.relu']
+layer input : ['(%119)']
+layer group : ['%118 ']
+
+layer id    : ['%121 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%120, meta[relay.Constant][85] /* group=0x7f8b038e3020 */ /* group=0x7f8b038e3020 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%121 ']
+
+layer id    : ['%122 ']
+layer op    : ['add']
+layer input : ['(%121, meta[relay.Constant][86] /* group=0x7f8b038e3070 */ /* group=0x7f8b038e3070 */)']
+layer group : ['%121 ']
+
+layer id    : ['%123 ']
+layer op    : ['multiply']
+layer input : ['(%122, meta[relay.Constant][87] /* group=0x7f8b038e30c0 */ /* group=0x7f8b038e30c0 */)']
+layer group : ['%121 ']
+
+layer id    : ['%124 ']
+layer op    : ['add']
+layer input : ['(%123, meta[relay.Constant][88] /* group=0x7f8b038e3110 */ /* group=0x7f8b038e3110 */)']
+layer group : ['%121 ']
+
+layer id    : ['%125 ']
+layer op    : ['add']
+layer input : ['(%124, %113)']
+layer group : ['%121 ']
+
+layer id    : ['%126 ']
+layer op    : ['nn.relu']
+layer input : ['(%125)']
+layer group : ['%121 ']
+
+layer id    : ['%127 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%126, meta[relay.Constant][89] /* group=0x7f8b038e31b0 */ /* group=0x7f8b038e31b0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%127 ']
+
+layer id    : ['%128 ']
+layer op    : ['add']
+layer input : ['(%127, meta[relay.Constant][90] /* group=0x7f8b038e3200 */ /* group=0x7f8b038e3200 */)']
+layer group : ['%127 ']
+
+layer id    : ['%129 ']
+layer op    : ['add']
+layer input : ['(%128, meta[relay.Constant][91] /* group=0x7f8b038e3250 */ /* group=0x7f8b038e3250 */)']
+layer group : ['%127 ']
+
+layer id    : ['%130 ']
+layer op    : ['nn.relu']
+layer input : ['(%129)']
+layer group : ['%127 ']
+
+layer id    : ['%131 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%130, meta[relay.Constant][92] /* group=0x7f8b038e32c8 */ /* group=0x7f8b038e32c8 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%131 ']
+
+layer id    : ['%132 ']
+layer op    : ['add']
+layer input : ['(%131, meta[relay.Constant][93] /* group=0x7f8b038e3318 */ /* group=0x7f8b038e3318 */)']
+layer group : ['%131 ']
+
+layer id    : ['%133 ']
+layer op    : ['nn.relu']
+layer input : ['(%132)']
+layer group : ['%131 ']
+
+layer id    : ['%134 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%133, meta[relay.Constant][94] /* group=0x7f8b038e3390 */ /* group=0x7f8b038e3390 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%134 ']
+
+layer id    : ['%135 ']
+layer op    : ['add']
+layer input : ['(%134, meta[relay.Constant][95] /* group=0x7f8b038e33e0 */ /* group=0x7f8b038e33e0 */)']
+layer group : ['%134 ']
+
+layer id    : ['%136 ']
+layer op    : ['multiply']
+layer input : ['(%135, meta[relay.Constant][96] /* group=0x7f8b038e3430 */ /* group=0x7f8b038e3430 */)']
+layer group : ['%134 ']
+
+layer id    : ['%137 ']
+layer op    : ['add']
+layer input : ['(%136, meta[relay.Constant][97] /* group=0x7f8b038e3480 */ /* group=0x7f8b038e3480 */)']
+layer group : ['%134 ']
+
+layer id    : ['%138 ']
+layer op    : ['add']
+layer input : ['(%137, %126)']
+layer group : ['%134 ']
+
+layer id    : ['%139 ']
+layer op    : ['nn.relu']
+layer input : ['(%138)']
+layer group : ['%134 ']
+
+layer id    : ['%140 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%139, meta[relay.Constant][98] /* group=0x7f8b038e3520 */ /* group=0x7f8b038e3520 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%140 ']
+
+layer id    : ['%141 ']
+layer op    : ['add']
+layer input : ['(%140, meta[relay.Constant][99] /* group=0x7f8b038e3570 */ /* group=0x7f8b038e3570 */)']
+layer group : ['%140 ']
+
+layer id    : ['%142 ']
+layer op    : ['add']
+layer input : ['(%141, meta[relay.Constant][100] /* group=0x7f8b038e35c0 */ /* group=0x7f8b038e35c0 */)']
+layer group : ['%140 ']
+
+layer id    : ['%143 ']
+layer op    : ['nn.relu']
+layer input : ['(%142)']
+layer group : ['%140 ']
+
+layer id    : ['%144 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%143, meta[relay.Constant][101] /* group=0x7f8b038e3638 */ /* group=0x7f8b038e3638 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%144 ']
+
+layer id    : ['%145 ']
+layer op    : ['add']
+layer input : ['(%144, meta[relay.Constant][102] /* group=0x7f8b038e3688 */ /* group=0x7f8b038e3688 */)']
+layer group : ['%144 ']
+
+layer id    : ['%146 ']
+layer op    : ['nn.relu']
+layer input : ['(%145)']
+layer group : ['%144 ']
+
+layer id    : ['%147 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%146, meta[relay.Constant][103] /* group=0x7f8b038e3700 */ /* group=0x7f8b038e3700 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%147 ']
+
+layer id    : ['%148 ']
+layer op    : ['add']
+layer input : ['(%147, meta[relay.Constant][104] /* group=0x7f8b038e3750 */ /* group=0x7f8b038e3750 */)']
+layer group : ['%147 ']
+
+layer id    : ['%149 ']
+layer op    : ['multiply']
+layer input : ['(%148, meta[relay.Constant][105] /* group=0x7f8b038e37a0 */ /* group=0x7f8b038e37a0 */)']
+layer group : ['%147 ']
+
+layer id    : ['%150 ']
+layer op    : ['add']
+layer input : ['(%149, meta[relay.Constant][106] /* group=0x7f8b038e37f0 */ /* group=0x7f8b038e37f0 */)']
+layer group : ['%147 ']
+
+layer id    : ['%151 ']
+layer op    : ['add']
+layer input : ['(%150, %139)']
+layer group : ['%147 ']
+
+layer id    : ['%152 ']
+layer op    : ['nn.relu']
+layer input : ['(%151)']
+layer group : ['%147 ']
+
+layer id    : ['%153 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%152, meta[relay.Constant][107] /* group=0x7f8b038e3890 */ /* group=0x7f8b038e3890 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%153 ']
+
+layer id    : ['%154 ']
+layer op    : ['add']
+layer input : ['(%153, meta[relay.Constant][108] /* group=0x7f8b038e38e0 */ /* group=0x7f8b038e38e0 */)']
+layer group : ['%153 ']
+
+layer id    : ['%155 ']
+layer op    : ['add']
+layer input : ['(%154, meta[relay.Constant][109] /* group=0x7f8b038e3930 */ /* group=0x7f8b038e3930 */)']
+layer group : ['%153 ']
+
+layer id    : ['%156 ']
+layer op    : ['nn.relu']
+layer input : ['(%155)']
+layer group : ['%153 ']
+
+layer id    : ['%157 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%156, meta[relay.Constant][110] /* group=0x7f8b038e39a8 */ /* group=0x7f8b038e39a8 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%157 ']
+
+layer id    : ['%158 ']
+layer op    : ['add']
+layer input : ['(%157, meta[relay.Constant][111] /* group=0x7f8b038e39f8 */ /* group=0x7f8b038e39f8 */)']
+layer group : ['%157 ']
+
+layer id    : ['%159 ']
+layer op    : ['nn.relu']
+layer input : ['(%158)']
+layer group : ['%157 ']
+
+layer id    : ['%160 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%159, meta[relay.Constant][112] /* group=0x7f8b038e3a70 */ /* group=0x7f8b038e3a70 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%160 ']
+
+layer id    : ['%161 ']
+layer op    : ['add']
+layer input : ['(%160, meta[relay.Constant][113] /* group=0x7f8b038e3ac0 */ /* group=0x7f8b038e3ac0 */)']
+layer group : ['%160 ']
+
+layer id    : ['%162 ']
+layer op    : ['multiply']
+layer input : ['(%161, meta[relay.Constant][114] /* group=0x7f8b038e3b10 */ /* group=0x7f8b038e3b10 */)']
+layer group : ['%160 ']
+
+layer id    : ['%163 ']
+layer op    : ['add']
+layer input : ['(%162, meta[relay.Constant][115] /* group=0x7f8b038e3b60 */ /* group=0x7f8b038e3b60 */)']
+layer group : ['%160 ']
+
+layer id    : ['%164 ']
+layer op    : ['add']
+layer input : ['(%163, %152)']
+layer group : ['%160 ']
+
+layer id    : ['%165 ']
+layer op    : ['nn.relu']
+layer input : ['(%164)']
+layer group : ['%160 ']
+
+layer id    : ['%166 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%165, meta[relay.Constant][116] /* group=0x7f8b038e3c00 */ /* group=0x7f8b038e3c00 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%166 ']
+
+layer id    : ['%167 ']
+layer op    : ['add']
+layer input : ['(%166, meta[relay.Constant][117] /* group=0x7f8b038e3c50 */ /* group=0x7f8b038e3c50 */)']
+layer group : ['%166 ']
+
+layer id    : ['%168 ']
+layer op    : ['add']
+layer input : ['(%167, meta[relay.Constant][118] /* group=0x7f8b038e3ca0 */ /* group=0x7f8b038e3ca0 */)']
+layer group : ['%166 ']
+
+layer id    : ['%169 ']
+layer op    : ['nn.relu']
+layer input : ['(%168)']
+layer group : ['%166 ']
+
+layer id    : ['%170 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%169, meta[relay.Constant][119] /* group=0x7f8b038e3d18 */ /* group=0x7f8b038e3d18 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3])']
+layer group : ['%170 ']
+
+layer id    : ['%171 ']
+layer op    : ['add']
+layer input : ['(%170, meta[relay.Constant][120] /* group=0x7f8b038e3d68 */ /* group=0x7f8b038e3d68 */)']
+layer group : ['%170 ']
+
+layer id    : ['%172 ']
+layer op    : ['nn.relu']
+layer input : ['(%171)']
+layer group : ['%170 ']
+
+layer id    : ['%173 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%172, meta[relay.Constant][121] /* group=0x7f8b038e3de0 */ /* group=0x7f8b038e3de0 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o")']
+layer group : ['%173 ']
+
+layer id    : ['%174 ']
+layer op    : ['add']
+layer input : ['(%173, meta[relay.Constant][122] /* group=0x7f8b038e3e30 */ /* group=0x7f8b038e3e30 */)']
+layer group : ['%173 ']
+
+layer id    : ['%175 ']
+layer op    : ['multiply']
+layer input : ['(%174, meta[relay.Constant][123] /* group=0x7f8b038e3e80 */ /* group=0x7f8b038e3e80 */)']
+layer group : ['%173 ']
+
+layer id    : ['%176 ']
+layer op    : ['add']
+layer input : ['(%175, meta[relay.Constant][124] /* group=0x7f8b038e3ed0 */ /* group=0x7f8b038e3ed0 */)']
+layer group : ['%173 ']
+
+layer id    : ['%177 ']
+layer op    : ['add']
+layer input : ['(%176, %165)']
+layer group : ['%173 ']
+
+layer id    : ['%178 ']
+layer op    : ['nn.relu']
+layer input : ['(%177)']
+layer group : ['%173 ']
+
+layer id    : ['%179 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%178, meta[relay.Constant][125] /* group=0x7f8b038e3f70 */ /* group=0x7f8b038e3f70 */, strides=[2, 2], channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%179 ']
+
+layer id    : ['%180 ']
+layer op    : ['add']
+layer input : ['(%179, meta[relay.Constant][126] /* group=0x7f8b038e3fc0 */ /* group=0x7f8b038e3fc0 */)']
+layer group : ['%179 ']
+
+layer id    : ['%181 ']
+layer op    : ['add']
+layer input : ['(%180, meta[relay.Constant][127] /* group=0x7f8b038e4010 */ /* group=0x7f8b038e4010 */)']
+layer group : ['%179 ']
+
+layer id    : ['%182 ']
+layer op    : ['nn.relu']
+layer input : ['(%181)']
+layer group : ['%179 ']
+
+layer id    : ['%183 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%182, meta[relay.Constant][128] /* group=0x7f8b038e4088 */ /* group=0x7f8b038e4088 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3])']
+layer group : ['%183 ']
+
+layer id    : ['%184 ']
+layer op    : ['add']
+layer input : ['(%183, meta[relay.Constant][129] /* group=0x7f8b038e40d8 */ /* group=0x7f8b038e40d8 */)']
+layer group : ['%183 ']
+
+layer id    : ['%185 ']
+layer op    : ['nn.relu']
+layer input : ['(%184)']
+layer group : ['%183 ']
+
+layer id    : ['%186 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%185, meta[relay.Constant][130] /* group=0x7f8b038e4150 */ /* group=0x7f8b038e4150 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%186 ']
+
+layer id    : ['%187 ']
+layer op    : ['add']
+layer input : ['(%186, meta[relay.Constant][131] /* group=0x7f8b038e41a0 */ /* group=0x7f8b038e41a0 */)']
+layer group : ['%186 ']
+
+layer id    : ['%188 ']
+layer op    : ['multiply']
+layer input : ['(%187, meta[relay.Constant][132] /* group=0x7f8b038e41f0 */ /* group=0x7f8b038e41f0 */)']
+layer group : ['%186 ']
+
+layer id    : ['%189 ']
+layer op    : ['add']
+layer input : ['(%188, meta[relay.Constant][133] /* group=0x7f8b038e4240 */ /* group=0x7f8b038e4240 */)']
+layer group : ['%186 ']
+
+layer id    : ['%190 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%178, meta[relay.Constant][134] /* group=0x7f8b038e4290 */ /* group=0x7f8b038e4290 */, strides=[2, 2], channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%190 ']
+
+layer id    : ['%191 ']
+layer op    : ['add']
+layer input : ['(%190, meta[relay.Constant][135] /* group=0x7f8b038e42e0 */ /* group=0x7f8b038e42e0 */)']
+layer group : ['%190 ']
+
+layer id    : ['%192 ']
+layer op    : ['add']
+layer input : ['(%189, %191)']
+layer group : ['%186 ']
+
+layer id    : ['%193 ']
+layer op    : ['nn.relu']
+layer input : ['(%192)']
+layer group : ['%186 ']
+
+layer id    : ['%194 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%193, meta[relay.Constant][136] /* group=0x7f8b038e4380 */ /* group=0x7f8b038e4380 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%194 ']
+
+layer id    : ['%195 ']
+layer op    : ['add']
+layer input : ['(%194, meta[relay.Constant][137] /* group=0x7f8b038e43d0 */ /* group=0x7f8b038e43d0 */)']
+layer group : ['%194 ']
+
+layer id    : ['%196 ']
+layer op    : ['add']
+layer input : ['(%195, meta[relay.Constant][138] /* group=0x7f8b038e4420 */ /* group=0x7f8b038e4420 */)']
+layer group : ['%194 ']
+
+layer id    : ['%197 ']
+layer op    : ['nn.relu']
+layer input : ['(%196)']
+layer group : ['%194 ']
+
+layer id    : ['%198 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%197, meta[relay.Constant][139] /* group=0x7f8b038e4498 */ /* group=0x7f8b038e4498 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3])']
+layer group : ['%198 ']
+
+layer id    : ['%199 ']
+layer op    : ['add']
+layer input : ['(%198, meta[relay.Constant][140] /* group=0x7f8b038e44e8 */ /* group=0x7f8b038e44e8 */)']
+layer group : ['%198 ']
+
+layer id    : ['%200 ']
+layer op    : ['nn.relu']
+layer input : ['(%199)']
+layer group : ['%198 ']
+
+layer id    : ['%201 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%200, meta[relay.Constant][141] /* group=0x7f8b038e4560 */ /* group=0x7f8b038e4560 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%201 ']
+
+layer id    : ['%202 ']
+layer op    : ['add']
+layer input : ['(%201, meta[relay.Constant][142] /* group=0x7f8b038e45b0 */ /* group=0x7f8b038e45b0 */)']
+layer group : ['%201 ']
+
+layer id    : ['%203 ']
+layer op    : ['multiply']
+layer input : ['(%202, meta[relay.Constant][143] /* group=0x7f8b038e4600 */ /* group=0x7f8b038e4600 */)']
+layer group : ['%201 ']
+
+layer id    : ['%204 ']
+layer op    : ['add']
+layer input : ['(%203, meta[relay.Constant][144] /* group=0x7f8b038e4650 */ /* group=0x7f8b038e4650 */)']
+layer group : ['%201 ']
+
+layer id    : ['%205 ']
+layer op    : ['add']
+layer input : ['(%204, %193)']
+layer group : ['%201 ']
+
+layer id    : ['%206 ']
+layer op    : ['nn.relu']
+layer input : ['(%205)']
+layer group : ['%201 ']
+
+layer id    : ['%207 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%206, meta[relay.Constant][145] /* group=0x7f8b038e46f0 */ /* group=0x7f8b038e46f0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%207 ']
+
+layer id    : ['%208 ']
+layer op    : ['add']
+layer input : ['(%207, meta[relay.Constant][146] /* group=0x7f8b038e4740 */ /* group=0x7f8b038e4740 */)']
+layer group : ['%207 ']
+
+layer id    : ['%209 ']
+layer op    : ['add']
+layer input : ['(%208, meta[relay.Constant][147] /* group=0x7f8b038e4790 */ /* group=0x7f8b038e4790 */)']
+layer group : ['%207 ']
+
+layer id    : ['%210 ']
+layer op    : ['nn.relu']
+layer input : ['(%209)']
+layer group : ['%207 ']
+
+layer id    : ['%211 ']
+layer op    : ['nn.contrib_conv2d_winograd_without_weight_transform']
+layer input : ['(%210, meta[relay.Constant][148] /* group=0x7f8b038e4808 */ /* group=0x7f8b038e4808 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3])']
+layer group : ['%211 ']
+
+layer id    : ['%212 ']
+layer op    : ['add']
+layer input : ['(%211, meta[relay.Constant][149] /* group=0x7f8b038e4858 */ /* group=0x7f8b038e4858 */)']
+layer group : ['%211 ']
+
+layer id    : ['%213 ']
+layer op    : ['nn.relu']
+layer input : ['(%212)']
+layer group : ['%211 ']
+
+layer id    : ['%214 ']
+layer op    : ['nn.conv2d']
+layer input : ['(%213, meta[relay.Constant][150] /* group=0x7f8b038e48d0 */ /* group=0x7f8b038e48d0 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o")']
+layer group : ['%214 ']
+
+layer id    : ['%215 ']
+layer op    : ['add']
+layer input : ['(%214, meta[relay.Constant][151] /* group=0x7f8b038e4920 */ /* group=0x7f8b038e4920 */)']
+layer group : ['%214 ']
+
+layer id    : ['%216 ']
+layer op    : ['multiply']
+layer input : ['(%215, meta[relay.Constant][152] /* group=0x7f8b038e4970 */ /* group=0x7f8b038e4970 */)']
+layer group : ['%214 ']
+
+layer id    : ['%217 ']
+layer op    : ['add']
+layer input : ['(%216, meta[relay.Constant][153] /* group=0x7f8b038e49c0 */ /* group=0x7f8b038e49c0 */)']
+layer group : ['%214 ']
+
+layer id    : ['%218 ']
+layer op    : ['add']
+layer input : ['(%217, %206)']
+layer group : ['%214 ']
+
+layer id    : ['%219 ']
+layer op    : ['nn.relu']
+layer input : ['(%218)']
+layer group : ['%214 ']
+
+layer id    : ['%220 ']
+layer op    : ['nn.global_avg_pool2d']
+layer input : ['(%219)']
+layer group : ['%220 ']
+
+layer id    : ['%221 ']
+layer op    : ['nn.batch_flatten']
+layer input : ['(%220)']
+layer group : ['%221 ']
+
+layer id    : ['%222 ']
+layer op    : ['nn.batch_flatten']
+layer input : ['(%221)']
+layer group : ['%221 ']
+
+layer id    : ['%223 ']
+layer op    : ['multiply']
+layer input : ['(1f /* group=0x7f8b038e4ad8 */, %222)']
+layer group : ['%221 ']
+
+layer id    : ['%224 ']
+layer op    : ['nn.dense']
+layer input : ['(%223, meta[relay.Constant][154] /* group=0x7f8b038e4b00 */ /* group=0x7f8b038e4b00 */, units=1000)']
+layer group : ['%224 ']
+
+layer id    : ['%225 ']
+layer op    : ['add']
+layer input : ['(%224, meta[relay.Constant][155] /* group=0x7f8b038e4b50 */ /* group=0x7f8b038e4b50 */)']
+layer group : ['%224 ']
+
+Dominator node : ['%0 ', '%3 ', '%4 ', '%8 ', '%11 ', '%15 ', '%19 ', '%23 ', '%26 ', '%32 ', '%36 ', '%39 ', '%45 ', '%49 ', '%52 ', '%56 ', '%60 ', '%64 ', '%67 ', '%73 ', '%77 ', '%80 ', '%86 ', '%90 ', '%93 ', '%99 ', '%103 ', '%106 ', '%110 ', '%114 ', '%118 ', '%121 ', '%127 ', '%131 ', '%134 ', '%140 ', '%144 ', '%147 ', '%153 ', '%157 ', '%160 ', '%166 ', '%170 ', '%173 ', '%179 ', '%183 ', '%186 ', '%190 ', '%194 ', '%198 ', '%201 ', '%207 ', '%211 ', '%214 ', '%220 ', '%221 ', '%224 ']
+
+_nn.conv2d_add_nn.relu
+_nn.max_pool2d
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.conv2d_add_add_nn.relu
+_nn.contrib_conv2d_winograd_without_weight_transform_add_nn.relu
+_nn.conv2d_add_multiply_add_add_nn.relu
+_nn.global_avg_pool2d
+_nn.batch_flatten_nn.batch_flatten_multiply
+_nn.dense_add
+len of data is : 226

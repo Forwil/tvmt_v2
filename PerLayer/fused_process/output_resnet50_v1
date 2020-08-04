@@ -1,0 +1,543 @@
+aarch64
+onnx
+resnet50_v1
+python3 auto_tune.py --target aarch64 --framework onnx --model resnet50_v1
+ --> from src/relay/backend/build_module.cc
+from relay/build_module.py BuildModule(object)
+Namespace(batch_size=1, framework='onnx', model='resnet50_v1', quantize='No', target='aarch64', thread=1)
+model_name : resnet50_v1
+./log/aarch64/onnx/1batch/1thread/aarch64_onnx_1batch_1thread_resnet50_v1.log
+Extract tasks...
+ ---------> onnx <----------------- 
+ ---------------------------------- 
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+./log/aarch64/onnx/1batch/1thread/aarch64_onnx_1batch_1thread_resnet50_v1.log exists, skipping...
+Compile with log_file...
+from relay/build_module.py build
+from relay/build_module.py BuildModule.build(...) --> from src/relay/backend/build_module.cc
+-->Begin to DebugDumpGroup<--
+Dump of group info:
+v0.0.4
+fn (%data: Tensor[(1, 3, 224, 224), float32]) -> Tensor[(1, 1000), float32] {
+  %0 = nn.conv2d(%data, meta[relay.Constant][0] /* group=0x7f8b039e63e0 */ /* group=0x7f8b039e63e0 */, strides=[2, 2], padding=[3, 3], channels=64, kernel_size=[7, 7], kernel_layout="OIHW8o") /* group=0x7f8b039e6480 */;
+  %1 = add(%0, meta[relay.Constant][1] /* group=0x7f8b039e6430 */ /* group=0x7f8b039e6430 */) /* group=0x7f8b039e6480 */;
+  %2 = nn.relu(%1) /* group=0x7f8b039e6480 */;
+  %3 = nn.max_pool2d(%2, pool_size=[3, 3], strides=[2, 2], padding=[1, 1]) /* group=0x7f8b039e64a8 */;
+  %4 = nn.conv2d(%3, meta[relay.Constant][2] /* group=0x7f8b039e64d0 */ /* group=0x7f8b039e64d0 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e65c0 */;
+  %5 = add(%4, meta[relay.Constant][3] /* group=0x7f8b039e6520 */ /* group=0x7f8b039e6520 */) /* group=0x7f8b039e65c0 */;
+  %6 = add(%5, meta[relay.Constant][4] /* group=0x7f8b039e6570 */ /* group=0x7f8b039e6570 */) /* group=0x7f8b039e65c0 */;
+  %7 = nn.relu(%6) /* group=0x7f8b039e65c0 */;
+  %8 = nn.contrib_conv2d_winograd_without_weight_transform(%7, meta[relay.Constant][5] /* group=0x7f8b039e65e8 */ /* group=0x7f8b039e65e8 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7f8b039e6688 */;
+  %9 = add(%8, meta[relay.Constant][6] /* group=0x7f8b039e6638 */ /* group=0x7f8b039e6638 */) /* group=0x7f8b039e6688 */;
+  %10 = nn.relu(%9) /* group=0x7f8b039e6688 */;
+  %11 = nn.conv2d(%10, meta[relay.Constant][7] /* group=0x7f8b039e66b0 */ /* group=0x7f8b039e66b0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e68b8 */;
+  %12 = add(%11, meta[relay.Constant][8] /* group=0x7f8b039e6700 */ /* group=0x7f8b039e6700 */) /* group=0x7f8b039e68b8 */;
+  %13 = multiply(%12, meta[relay.Constant][9] /* group=0x7f8b039e6750 */ /* group=0x7f8b039e6750 */) /* group=0x7f8b039e68b8 */;
+  %14 = add(%13, meta[relay.Constant][10] /* group=0x7f8b039e67a0 */ /* group=0x7f8b039e67a0 */) /* group=0x7f8b039e68b8 */;
+  %15 = nn.conv2d(%3, meta[relay.Constant][11] /* group=0x7f8b039e67f0 */ /* group=0x7f8b039e67f0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e6868 */;
+  %16 = add(%15, meta[relay.Constant][12] /* group=0x7f8b039e6840 */ /* group=0x7f8b039e6840 */) /* group=0x7f8b039e6868 */;
+  %17 = add(%14, %16) /* group=0x7f8b039e68b8 */;
+  %18 = nn.relu(%17) /* group=0x7f8b039e68b8 */;
+  %19 = nn.conv2d(%18, meta[relay.Constant][13] /* group=0x7f8b039e68e0 */ /* group=0x7f8b039e68e0 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e69d0 */;
+  %20 = add(%19, meta[relay.Constant][14] /* group=0x7f8b039e6930 */ /* group=0x7f8b039e6930 */) /* group=0x7f8b039e69d0 */;
+  %21 = add(%20, meta[relay.Constant][15] /* group=0x7f8b039e6980 */ /* group=0x7f8b039e6980 */) /* group=0x7f8b039e69d0 */;
+  %22 = nn.relu(%21) /* group=0x7f8b039e69d0 */;
+  %23 = nn.contrib_conv2d_winograd_without_weight_transform(%22, meta[relay.Constant][16] /* group=0x7f8b039e69f8 */ /* group=0x7f8b039e69f8 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7f8b039e6a98 */;
+  %24 = add(%23, meta[relay.Constant][17] /* group=0x7f8b039e6a48 */ /* group=0x7f8b039e6a48 */) /* group=0x7f8b039e6a98 */;
+  %25 = nn.relu(%24) /* group=0x7f8b039e6a98 */;
+  %26 = nn.conv2d(%25, meta[relay.Constant][18] /* group=0x7f8b039e6ac0 */ /* group=0x7f8b039e6ac0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e6c28 */;
+  %27 = add(%26, meta[relay.Constant][19] /* group=0x7f8b039e6b10 */ /* group=0x7f8b039e6b10 */) /* group=0x7f8b039e6c28 */;
+  %28 = multiply(%27, meta[relay.Constant][20] /* group=0x7f8b039e6b60 */ /* group=0x7f8b039e6b60 */) /* group=0x7f8b039e6c28 */;
+  %29 = add(%28, meta[relay.Constant][21] /* group=0x7f8b039e6bb0 */ /* group=0x7f8b039e6bb0 */) /* group=0x7f8b039e6c28 */;
+  %30 = add(%29, %18) /* group=0x7f8b039e6c28 */;
+  %31 = nn.relu(%30) /* group=0x7f8b039e6c28 */;
+  %32 = nn.conv2d(%31, meta[relay.Constant][22] /* group=0x7f8b039e6c50 */ /* group=0x7f8b039e6c50 */, channels=64, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e6d40 */;
+  %33 = add(%32, meta[relay.Constant][23] /* group=0x7f8b039e6ca0 */ /* group=0x7f8b039e6ca0 */) /* group=0x7f8b039e6d40 */;
+  %34 = add(%33, meta[relay.Constant][24] /* group=0x7f8b039e6cf0 */ /* group=0x7f8b039e6cf0 */) /* group=0x7f8b039e6d40 */;
+  %35 = nn.relu(%34) /* group=0x7f8b039e6d40 */;
+  %36 = nn.contrib_conv2d_winograd_without_weight_transform(%35, meta[relay.Constant][25] /* group=0x7f8b039e6d68 */ /* group=0x7f8b039e6d68 */, tile_size=4, padding=[1, 1], channels=64, kernel_size=[3, 3]) /* group=0x7f8b039e6e08 */;
+  %37 = add(%36, meta[relay.Constant][26] /* group=0x7f8b039e6db8 */ /* group=0x7f8b039e6db8 */) /* group=0x7f8b039e6e08 */;
+  %38 = nn.relu(%37) /* group=0x7f8b039e6e08 */;
+  %39 = nn.conv2d(%38, meta[relay.Constant][27] /* group=0x7f8b039e6e30 */ /* group=0x7f8b039e6e30 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e6f98 */;
+  %40 = add(%39, meta[relay.Constant][28] /* group=0x7f8b039e6e80 */ /* group=0x7f8b039e6e80 */) /* group=0x7f8b039e6f98 */;
+  %41 = multiply(%40, meta[relay.Constant][29] /* group=0x7f8b039e6ed0 */ /* group=0x7f8b039e6ed0 */) /* group=0x7f8b039e6f98 */;
+  %42 = add(%41, meta[relay.Constant][30] /* group=0x7f8b039e6f20 */ /* group=0x7f8b039e6f20 */) /* group=0x7f8b039e6f98 */;
+  %43 = add(%42, %31) /* group=0x7f8b039e6f98 */;
+  %44 = nn.relu(%43) /* group=0x7f8b039e6f98 */;
+  %45 = nn.conv2d(%44, meta[relay.Constant][31] /* group=0x7f8b039e6fc0 */ /* group=0x7f8b039e6fc0 */, strides=[2, 2], channels=128, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e70b0 */;
+  %46 = add(%45, meta[relay.Constant][32] /* group=0x7f8b039e7010 */ /* group=0x7f8b039e7010 */) /* group=0x7f8b039e70b0 */;
+  %47 = add(%46, meta[relay.Constant][33] /* group=0x7f8b039e7060 */ /* group=0x7f8b039e7060 */) /* group=0x7f8b039e70b0 */;
+  %48 = nn.relu(%47) /* group=0x7f8b039e70b0 */;
+  %49 = nn.contrib_conv2d_winograd_without_weight_transform(%48, meta[relay.Constant][34] /* group=0x7f8b039e70d8 */ /* group=0x7f8b039e70d8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7f8b039e7178 */;
+  %50 = add(%49, meta[relay.Constant][35] /* group=0x7f8b039e7128 */ /* group=0x7f8b039e7128 */) /* group=0x7f8b039e7178 */;
+  %51 = nn.relu(%50) /* group=0x7f8b039e7178 */;
+  %52 = nn.conv2d(%51, meta[relay.Constant][36] /* group=0x7f8b039e71a0 */ /* group=0x7f8b039e71a0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e73a8 */;
+  %53 = add(%52, meta[relay.Constant][37] /* group=0x7f8b039e71f0 */ /* group=0x7f8b039e71f0 */) /* group=0x7f8b039e73a8 */;
+  %54 = multiply(%53, meta[relay.Constant][38] /* group=0x7f8b039e7240 */ /* group=0x7f8b039e7240 */) /* group=0x7f8b039e73a8 */;
+  %55 = add(%54, meta[relay.Constant][39] /* group=0x7f8b039e7290 */ /* group=0x7f8b039e7290 */) /* group=0x7f8b039e73a8 */;
+  %56 = nn.conv2d(%44, meta[relay.Constant][40] /* group=0x7f8b039e72e0 */ /* group=0x7f8b039e72e0 */, strides=[2, 2], channels=512, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e7358 */;
+  %57 = add(%56, meta[relay.Constant][41] /* group=0x7f8b039e7330 */ /* group=0x7f8b039e7330 */) /* group=0x7f8b039e7358 */;
+  %58 = add(%55, %57) /* group=0x7f8b039e73a8 */;
+  %59 = nn.relu(%58) /* group=0x7f8b039e73a8 */;
+  %60 = nn.conv2d(%59, meta[relay.Constant][42] /* group=0x7f8b039e73d0 */ /* group=0x7f8b039e73d0 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e74c0 */;
+  %61 = add(%60, meta[relay.Constant][43] /* group=0x7f8b039e7420 */ /* group=0x7f8b039e7420 */) /* group=0x7f8b039e74c0 */;
+  %62 = add(%61, meta[relay.Constant][44] /* group=0x7f8b039e7470 */ /* group=0x7f8b039e7470 */) /* group=0x7f8b039e74c0 */;
+  %63 = nn.relu(%62) /* group=0x7f8b039e74c0 */;
+  %64 = nn.contrib_conv2d_winograd_without_weight_transform(%63, meta[relay.Constant][45] /* group=0x7f8b039e74e8 */ /* group=0x7f8b039e74e8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7f8b039e7588 */;
+  %65 = add(%64, meta[relay.Constant][46] /* group=0x7f8b039e7538 */ /* group=0x7f8b039e7538 */) /* group=0x7f8b039e7588 */;
+  %66 = nn.relu(%65) /* group=0x7f8b039e7588 */;
+  %67 = nn.conv2d(%66, meta[relay.Constant][47] /* group=0x7f8b039e75b0 */ /* group=0x7f8b039e75b0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e7718 */;
+  %68 = add(%67, meta[relay.Constant][48] /* group=0x7f8b039e7600 */ /* group=0x7f8b039e7600 */) /* group=0x7f8b039e7718 */;
+  %69 = multiply(%68, meta[relay.Constant][49] /* group=0x7f8b039e7650 */ /* group=0x7f8b039e7650 */) /* group=0x7f8b039e7718 */;
+  %70 = add(%69, meta[relay.Constant][50] /* group=0x7f8b039e76a0 */ /* group=0x7f8b039e76a0 */) /* group=0x7f8b039e7718 */;
+  %71 = add(%70, %59) /* group=0x7f8b039e7718 */;
+  %72 = nn.relu(%71) /* group=0x7f8b039e7718 */;
+  %73 = nn.conv2d(%72, meta[relay.Constant][51] /* group=0x7f8b039e7740 */ /* group=0x7f8b039e7740 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e7830 */;
+  %74 = add(%73, meta[relay.Constant][52] /* group=0x7f8b039e7790 */ /* group=0x7f8b039e7790 */) /* group=0x7f8b039e7830 */;
+  %75 = add(%74, meta[relay.Constant][53] /* group=0x7f8b039e77e0 */ /* group=0x7f8b039e77e0 */) /* group=0x7f8b039e7830 */;
+  %76 = nn.relu(%75) /* group=0x7f8b039e7830 */;
+  %77 = nn.contrib_conv2d_winograd_without_weight_transform(%76, meta[relay.Constant][54] /* group=0x7f8b039e7858 */ /* group=0x7f8b039e7858 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7f8b039e78f8 */;
+  %78 = add(%77, meta[relay.Constant][55] /* group=0x7f8b039e78a8 */ /* group=0x7f8b039e78a8 */) /* group=0x7f8b039e78f8 */;
+  %79 = nn.relu(%78) /* group=0x7f8b039e78f8 */;
+  %80 = nn.conv2d(%79, meta[relay.Constant][56] /* group=0x7f8b039e7920 */ /* group=0x7f8b039e7920 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e7a88 */;
+  %81 = add(%80, meta[relay.Constant][57] /* group=0x7f8b039e7970 */ /* group=0x7f8b039e7970 */) /* group=0x7f8b039e7a88 */;
+  %82 = multiply(%81, meta[relay.Constant][58] /* group=0x7f8b039e79c0 */ /* group=0x7f8b039e79c0 */) /* group=0x7f8b039e7a88 */;
+  %83 = add(%82, meta[relay.Constant][59] /* group=0x7f8b039e7a10 */ /* group=0x7f8b039e7a10 */) /* group=0x7f8b039e7a88 */;
+  %84 = add(%83, %72) /* group=0x7f8b039e7a88 */;
+  %85 = nn.relu(%84) /* group=0x7f8b039e7a88 */;
+  %86 = nn.conv2d(%85, meta[relay.Constant][60] /* group=0x7f8b039e7ab0 */ /* group=0x7f8b039e7ab0 */, channels=128, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e7ba0 */;
+  %87 = add(%86, meta[relay.Constant][61] /* group=0x7f8b039e7b00 */ /* group=0x7f8b039e7b00 */) /* group=0x7f8b039e7ba0 */;
+  %88 = add(%87, meta[relay.Constant][62] /* group=0x7f8b039e7b50 */ /* group=0x7f8b039e7b50 */) /* group=0x7f8b039e7ba0 */;
+  %89 = nn.relu(%88) /* group=0x7f8b039e7ba0 */;
+  %90 = nn.contrib_conv2d_winograd_without_weight_transform(%89, meta[relay.Constant][63] /* group=0x7f8b039e7bc8 */ /* group=0x7f8b039e7bc8 */, tile_size=4, padding=[1, 1], channels=128, kernel_size=[3, 3]) /* group=0x7f8b039e7c68 */;
+  %91 = add(%90, meta[relay.Constant][64] /* group=0x7f8b039e7c18 */ /* group=0x7f8b039e7c18 */) /* group=0x7f8b039e7c68 */;
+  %92 = nn.relu(%91) /* group=0x7f8b039e7c68 */;
+  %93 = nn.conv2d(%92, meta[relay.Constant][65] /* group=0x7f8b039e7c90 */ /* group=0x7f8b039e7c90 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b039e7df8 */;
+  %94 = add(%93, meta[relay.Constant][66] /* group=0x7f8b039e7ce0 */ /* group=0x7f8b039e7ce0 */) /* group=0x7f8b039e7df8 */;
+  %95 = multiply(%94, meta[relay.Constant][67] /* group=0x7f8b039e7d30 */ /* group=0x7f8b039e7d30 */) /* group=0x7f8b039e7df8 */;
+  %96 = add(%95, meta[relay.Constant][68] /* group=0x7f8b039e7d80 */ /* group=0x7f8b039e7d80 */) /* group=0x7f8b039e7df8 */;
+  %97 = add(%96, %85) /* group=0x7f8b039e7df8 */;
+  %98 = nn.relu(%97) /* group=0x7f8b039e7df8 */;
+  %99 = nn.conv2d(%98, meta[relay.Constant][69] /* group=0x7f8b039e7e20 */ /* group=0x7f8b039e7e20 */, strides=[2, 2], channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b039e7f10 */;
+  %100 = add(%99, meta[relay.Constant][70] /* group=0x7f8b039e7e70 */ /* group=0x7f8b039e7e70 */) /* group=0x7f8b039e7f10 */;
+  %101 = add(%100, meta[relay.Constant][71] /* group=0x7f8b039e7ec0 */ /* group=0x7f8b039e7ec0 */) /* group=0x7f8b039e7f10 */;
+  %102 = nn.relu(%101) /* group=0x7f8b039e7f10 */;
+  %103 = nn.contrib_conv2d_winograd_without_weight_transform(%102, meta[relay.Constant][72] /* group=0x7f8b039e7f38 */ /* group=0x7f8b039e7f38 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b039e7fd8 */;
+  %104 = add(%103, meta[relay.Constant][73] /* group=0x7f8b039e7f88 */ /* group=0x7f8b039e7f88 */) /* group=0x7f8b039e7fd8 */;
+  %105 = nn.relu(%104) /* group=0x7f8b039e7fd8 */;
+  %106 = nn.conv2d(%105, meta[relay.Constant][74] /* group=0x7f8b038e2c10 */ /* group=0x7f8b038e2c10 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e2e18 */;
+  %107 = add(%106, meta[relay.Constant][75] /* group=0x7f8b038e2c60 */ /* group=0x7f8b038e2c60 */) /* group=0x7f8b038e2e18 */;
+  %108 = multiply(%107, meta[relay.Constant][76] /* group=0x7f8b038e2cb0 */ /* group=0x7f8b038e2cb0 */) /* group=0x7f8b038e2e18 */;
+  %109 = add(%108, meta[relay.Constant][77] /* group=0x7f8b038e2d00 */ /* group=0x7f8b038e2d00 */) /* group=0x7f8b038e2e18 */;
+  %110 = nn.conv2d(%98, meta[relay.Constant][78] /* group=0x7f8b038e2d50 */ /* group=0x7f8b038e2d50 */, strides=[2, 2], channels=1024, kernel_size=[1, 1], kernel_layout="OIHW16o") /* group=0x7f8b038e2dc8 */;
+  %111 = add(%110, meta[relay.Constant][79] /* group=0x7f8b038e2da0 */ /* group=0x7f8b038e2da0 */) /* group=0x7f8b038e2dc8 */;
+  %112 = add(%109, %111) /* group=0x7f8b038e2e18 */;
+  %113 = nn.relu(%112) /* group=0x7f8b038e2e18 */;
+  %114 = nn.conv2d(%113, meta[relay.Constant][80] /* group=0x7f8b038e2e40 */ /* group=0x7f8b038e2e40 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e2f30 */;
+  %115 = add(%114, meta[relay.Constant][81] /* group=0x7f8b038e2e90 */ /* group=0x7f8b038e2e90 */) /* group=0x7f8b038e2f30 */;
+  %116 = add(%115, meta[relay.Constant][82] /* group=0x7f8b038e2ee0 */ /* group=0x7f8b038e2ee0 */) /* group=0x7f8b038e2f30 */;
+  %117 = nn.relu(%116) /* group=0x7f8b038e2f30 */;
+  %118 = nn.contrib_conv2d_winograd_without_weight_transform(%117, meta[relay.Constant][83] /* group=0x7f8b038e2f58 */ /* group=0x7f8b038e2f58 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b038e2ff8 */;
+  %119 = add(%118, meta[relay.Constant][84] /* group=0x7f8b038e2fa8 */ /* group=0x7f8b038e2fa8 */) /* group=0x7f8b038e2ff8 */;
+  %120 = nn.relu(%119) /* group=0x7f8b038e2ff8 */;
+  %121 = nn.conv2d(%120, meta[relay.Constant][85] /* group=0x7f8b038e3020 */ /* group=0x7f8b038e3020 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3188 */;
+  %122 = add(%121, meta[relay.Constant][86] /* group=0x7f8b038e3070 */ /* group=0x7f8b038e3070 */) /* group=0x7f8b038e3188 */;
+  %123 = multiply(%122, meta[relay.Constant][87] /* group=0x7f8b038e30c0 */ /* group=0x7f8b038e30c0 */) /* group=0x7f8b038e3188 */;
+  %124 = add(%123, meta[relay.Constant][88] /* group=0x7f8b038e3110 */ /* group=0x7f8b038e3110 */) /* group=0x7f8b038e3188 */;
+  %125 = add(%124, %113) /* group=0x7f8b038e3188 */;
+  %126 = nn.relu(%125) /* group=0x7f8b038e3188 */;
+  %127 = nn.conv2d(%126, meta[relay.Constant][89] /* group=0x7f8b038e31b0 */ /* group=0x7f8b038e31b0 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e32a0 */;
+  %128 = add(%127, meta[relay.Constant][90] /* group=0x7f8b038e3200 */ /* group=0x7f8b038e3200 */) /* group=0x7f8b038e32a0 */;
+  %129 = add(%128, meta[relay.Constant][91] /* group=0x7f8b038e3250 */ /* group=0x7f8b038e3250 */) /* group=0x7f8b038e32a0 */;
+  %130 = nn.relu(%129) /* group=0x7f8b038e32a0 */;
+  %131 = nn.contrib_conv2d_winograd_without_weight_transform(%130, meta[relay.Constant][92] /* group=0x7f8b038e32c8 */ /* group=0x7f8b038e32c8 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b038e3368 */;
+  %132 = add(%131, meta[relay.Constant][93] /* group=0x7f8b038e3318 */ /* group=0x7f8b038e3318 */) /* group=0x7f8b038e3368 */;
+  %133 = nn.relu(%132) /* group=0x7f8b038e3368 */;
+  %134 = nn.conv2d(%133, meta[relay.Constant][94] /* group=0x7f8b038e3390 */ /* group=0x7f8b038e3390 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e34f8 */;
+  %135 = add(%134, meta[relay.Constant][95] /* group=0x7f8b038e33e0 */ /* group=0x7f8b038e33e0 */) /* group=0x7f8b038e34f8 */;
+  %136 = multiply(%135, meta[relay.Constant][96] /* group=0x7f8b038e3430 */ /* group=0x7f8b038e3430 */) /* group=0x7f8b038e34f8 */;
+  %137 = add(%136, meta[relay.Constant][97] /* group=0x7f8b038e3480 */ /* group=0x7f8b038e3480 */) /* group=0x7f8b038e34f8 */;
+  %138 = add(%137, %126) /* group=0x7f8b038e34f8 */;
+  %139 = nn.relu(%138) /* group=0x7f8b038e34f8 */;
+  %140 = nn.conv2d(%139, meta[relay.Constant][98] /* group=0x7f8b038e3520 */ /* group=0x7f8b038e3520 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3610 */;
+  %141 = add(%140, meta[relay.Constant][99] /* group=0x7f8b038e3570 */ /* group=0x7f8b038e3570 */) /* group=0x7f8b038e3610 */;
+  %142 = add(%141, meta[relay.Constant][100] /* group=0x7f8b038e35c0 */ /* group=0x7f8b038e35c0 */) /* group=0x7f8b038e3610 */;
+  %143 = nn.relu(%142) /* group=0x7f8b038e3610 */;
+  %144 = nn.contrib_conv2d_winograd_without_weight_transform(%143, meta[relay.Constant][101] /* group=0x7f8b038e3638 */ /* group=0x7f8b038e3638 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b038e36d8 */;
+  %145 = add(%144, meta[relay.Constant][102] /* group=0x7f8b038e3688 */ /* group=0x7f8b038e3688 */) /* group=0x7f8b038e36d8 */;
+  %146 = nn.relu(%145) /* group=0x7f8b038e36d8 */;
+  %147 = nn.conv2d(%146, meta[relay.Constant][103] /* group=0x7f8b038e3700 */ /* group=0x7f8b038e3700 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3868 */;
+  %148 = add(%147, meta[relay.Constant][104] /* group=0x7f8b038e3750 */ /* group=0x7f8b038e3750 */) /* group=0x7f8b038e3868 */;
+  %149 = multiply(%148, meta[relay.Constant][105] /* group=0x7f8b038e37a0 */ /* group=0x7f8b038e37a0 */) /* group=0x7f8b038e3868 */;
+  %150 = add(%149, meta[relay.Constant][106] /* group=0x7f8b038e37f0 */ /* group=0x7f8b038e37f0 */) /* group=0x7f8b038e3868 */;
+  %151 = add(%150, %139) /* group=0x7f8b038e3868 */;
+  %152 = nn.relu(%151) /* group=0x7f8b038e3868 */;
+  %153 = nn.conv2d(%152, meta[relay.Constant][107] /* group=0x7f8b038e3890 */ /* group=0x7f8b038e3890 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3980 */;
+  %154 = add(%153, meta[relay.Constant][108] /* group=0x7f8b038e38e0 */ /* group=0x7f8b038e38e0 */) /* group=0x7f8b038e3980 */;
+  %155 = add(%154, meta[relay.Constant][109] /* group=0x7f8b038e3930 */ /* group=0x7f8b038e3930 */) /* group=0x7f8b038e3980 */;
+  %156 = nn.relu(%155) /* group=0x7f8b038e3980 */;
+  %157 = nn.contrib_conv2d_winograd_without_weight_transform(%156, meta[relay.Constant][110] /* group=0x7f8b038e39a8 */ /* group=0x7f8b038e39a8 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b038e3a48 */;
+  %158 = add(%157, meta[relay.Constant][111] /* group=0x7f8b038e39f8 */ /* group=0x7f8b038e39f8 */) /* group=0x7f8b038e3a48 */;
+  %159 = nn.relu(%158) /* group=0x7f8b038e3a48 */;
+  %160 = nn.conv2d(%159, meta[relay.Constant][112] /* group=0x7f8b038e3a70 */ /* group=0x7f8b038e3a70 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3bd8 */;
+  %161 = add(%160, meta[relay.Constant][113] /* group=0x7f8b038e3ac0 */ /* group=0x7f8b038e3ac0 */) /* group=0x7f8b038e3bd8 */;
+  %162 = multiply(%161, meta[relay.Constant][114] /* group=0x7f8b038e3b10 */ /* group=0x7f8b038e3b10 */) /* group=0x7f8b038e3bd8 */;
+  %163 = add(%162, meta[relay.Constant][115] /* group=0x7f8b038e3b60 */ /* group=0x7f8b038e3b60 */) /* group=0x7f8b038e3bd8 */;
+  %164 = add(%163, %152) /* group=0x7f8b038e3bd8 */;
+  %165 = nn.relu(%164) /* group=0x7f8b038e3bd8 */;
+  %166 = nn.conv2d(%165, meta[relay.Constant][116] /* group=0x7f8b038e3c00 */ /* group=0x7f8b038e3c00 */, channels=256, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3cf0 */;
+  %167 = add(%166, meta[relay.Constant][117] /* group=0x7f8b038e3c50 */ /* group=0x7f8b038e3c50 */) /* group=0x7f8b038e3cf0 */;
+  %168 = add(%167, meta[relay.Constant][118] /* group=0x7f8b038e3ca0 */ /* group=0x7f8b038e3ca0 */) /* group=0x7f8b038e3cf0 */;
+  %169 = nn.relu(%168) /* group=0x7f8b038e3cf0 */;
+  %170 = nn.contrib_conv2d_winograd_without_weight_transform(%169, meta[relay.Constant][119] /* group=0x7f8b038e3d18 */ /* group=0x7f8b038e3d18 */, tile_size=4, padding=[1, 1], channels=256, kernel_size=[3, 3]) /* group=0x7f8b038e3db8 */;
+  %171 = add(%170, meta[relay.Constant][120] /* group=0x7f8b038e3d68 */ /* group=0x7f8b038e3d68 */) /* group=0x7f8b038e3db8 */;
+  %172 = nn.relu(%171) /* group=0x7f8b038e3db8 */;
+  %173 = nn.conv2d(%172, meta[relay.Constant][121] /* group=0x7f8b038e3de0 */ /* group=0x7f8b038e3de0 */, channels=1024, kernel_size=[1, 1], kernel_layout="OIHW32o") /* group=0x7f8b038e3f48 */;
+  %174 = add(%173, meta[relay.Constant][122] /* group=0x7f8b038e3e30 */ /* group=0x7f8b038e3e30 */) /* group=0x7f8b038e3f48 */;
+  %175 = multiply(%174, meta[relay.Constant][123] /* group=0x7f8b038e3e80 */ /* group=0x7f8b038e3e80 */) /* group=0x7f8b038e3f48 */;
+  %176 = add(%175, meta[relay.Constant][124] /* group=0x7f8b038e3ed0 */ /* group=0x7f8b038e3ed0 */) /* group=0x7f8b038e3f48 */;
+  %177 = add(%176, %165) /* group=0x7f8b038e3f48 */;
+  %178 = nn.relu(%177) /* group=0x7f8b038e3f48 */;
+  %179 = nn.conv2d(%178, meta[relay.Constant][125] /* group=0x7f8b038e3f70 */ /* group=0x7f8b038e3f70 */, strides=[2, 2], channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e4060 */;
+  %180 = add(%179, meta[relay.Constant][126] /* group=0x7f8b038e3fc0 */ /* group=0x7f8b038e3fc0 */) /* group=0x7f8b038e4060 */;
+  %181 = add(%180, meta[relay.Constant][127] /* group=0x7f8b038e4010 */ /* group=0x7f8b038e4010 */) /* group=0x7f8b038e4060 */;
+  %182 = nn.relu(%181) /* group=0x7f8b038e4060 */;
+  %183 = nn.contrib_conv2d_winograd_without_weight_transform(%182, meta[relay.Constant][128] /* group=0x7f8b038e4088 */ /* group=0x7f8b038e4088 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7f8b038e4128 */;
+  %184 = add(%183, meta[relay.Constant][129] /* group=0x7f8b038e40d8 */ /* group=0x7f8b038e40d8 */) /* group=0x7f8b038e4128 */;
+  %185 = nn.relu(%184) /* group=0x7f8b038e4128 */;
+  %186 = nn.conv2d(%185, meta[relay.Constant][130] /* group=0x7f8b038e4150 */ /* group=0x7f8b038e4150 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e4358 */;
+  %187 = add(%186, meta[relay.Constant][131] /* group=0x7f8b038e41a0 */ /* group=0x7f8b038e41a0 */) /* group=0x7f8b038e4358 */;
+  %188 = multiply(%187, meta[relay.Constant][132] /* group=0x7f8b038e41f0 */ /* group=0x7f8b038e41f0 */) /* group=0x7f8b038e4358 */;
+  %189 = add(%188, meta[relay.Constant][133] /* group=0x7f8b038e4240 */ /* group=0x7f8b038e4240 */) /* group=0x7f8b038e4358 */;
+  %190 = nn.conv2d(%178, meta[relay.Constant][134] /* group=0x7f8b038e4290 */ /* group=0x7f8b038e4290 */, strides=[2, 2], channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e4308 */;
+  %191 = add(%190, meta[relay.Constant][135] /* group=0x7f8b038e42e0 */ /* group=0x7f8b038e42e0 */) /* group=0x7f8b038e4308 */;
+  %192 = add(%189, %191) /* group=0x7f8b038e4358 */;
+  %193 = nn.relu(%192) /* group=0x7f8b038e4358 */;
+  %194 = nn.conv2d(%193, meta[relay.Constant][136] /* group=0x7f8b038e4380 */ /* group=0x7f8b038e4380 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e4470 */;
+  %195 = add(%194, meta[relay.Constant][137] /* group=0x7f8b038e43d0 */ /* group=0x7f8b038e43d0 */) /* group=0x7f8b038e4470 */;
+  %196 = add(%195, meta[relay.Constant][138] /* group=0x7f8b038e4420 */ /* group=0x7f8b038e4420 */) /* group=0x7f8b038e4470 */;
+  %197 = nn.relu(%196) /* group=0x7f8b038e4470 */;
+  %198 = nn.contrib_conv2d_winograd_without_weight_transform(%197, meta[relay.Constant][139] /* group=0x7f8b038e4498 */ /* group=0x7f8b038e4498 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7f8b038e4538 */;
+  %199 = add(%198, meta[relay.Constant][140] /* group=0x7f8b038e44e8 */ /* group=0x7f8b038e44e8 */) /* group=0x7f8b038e4538 */;
+  %200 = nn.relu(%199) /* group=0x7f8b038e4538 */;
+  %201 = nn.conv2d(%200, meta[relay.Constant][141] /* group=0x7f8b038e4560 */ /* group=0x7f8b038e4560 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e46c8 */;
+  %202 = add(%201, meta[relay.Constant][142] /* group=0x7f8b038e45b0 */ /* group=0x7f8b038e45b0 */) /* group=0x7f8b038e46c8 */;
+  %203 = multiply(%202, meta[relay.Constant][143] /* group=0x7f8b038e4600 */ /* group=0x7f8b038e4600 */) /* group=0x7f8b038e46c8 */;
+  %204 = add(%203, meta[relay.Constant][144] /* group=0x7f8b038e4650 */ /* group=0x7f8b038e4650 */) /* group=0x7f8b038e46c8 */;
+  %205 = add(%204, %193) /* group=0x7f8b038e46c8 */;
+  %206 = nn.relu(%205) /* group=0x7f8b038e46c8 */;
+  %207 = nn.conv2d(%206, meta[relay.Constant][145] /* group=0x7f8b038e46f0 */ /* group=0x7f8b038e46f0 */, channels=512, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e47e0 */;
+  %208 = add(%207, meta[relay.Constant][146] /* group=0x7f8b038e4740 */ /* group=0x7f8b038e4740 */) /* group=0x7f8b038e47e0 */;
+  %209 = add(%208, meta[relay.Constant][147] /* group=0x7f8b038e4790 */ /* group=0x7f8b038e4790 */) /* group=0x7f8b038e47e0 */;
+  %210 = nn.relu(%209) /* group=0x7f8b038e47e0 */;
+  %211 = nn.contrib_conv2d_winograd_without_weight_transform(%210, meta[relay.Constant][148] /* group=0x7f8b038e4808 */ /* group=0x7f8b038e4808 */, tile_size=4, padding=[1, 1], channels=512, kernel_size=[3, 3]) /* group=0x7f8b038e48a8 */;
+  %212 = add(%211, meta[relay.Constant][149] /* group=0x7f8b038e4858 */ /* group=0x7f8b038e4858 */) /* group=0x7f8b038e48a8 */;
+  %213 = nn.relu(%212) /* group=0x7f8b038e48a8 */;
+  %214 = nn.conv2d(%213, meta[relay.Constant][150] /* group=0x7f8b038e48d0 */ /* group=0x7f8b038e48d0 */, channels=2048, kernel_size=[1, 1], kernel_layout="OIHW8o") /* group=0x7f8b038e4a38 */;
+  %215 = add(%214, meta[relay.Constant][151] /* group=0x7f8b038e4920 */ /* group=0x7f8b038e4920 */) /* group=0x7f8b038e4a38 */;
+  %216 = multiply(%215, meta[relay.Constant][152] /* group=0x7f8b038e4970 */ /* group=0x7f8b038e4970 */) /* group=0x7f8b038e4a38 */;
+  %217 = add(%216, meta[relay.Constant][153] /* group=0x7f8b038e49c0 */ /* group=0x7f8b038e49c0 */) /* group=0x7f8b038e4a38 */;
+  %218 = add(%217, %206) /* group=0x7f8b038e4a38 */;
+  %219 = nn.relu(%218) /* group=0x7f8b038e4a38 */;
+  %220 = nn.global_avg_pool2d(%219) /* group=0x7f8b038e4a60 */;
+  %221 = nn.batch_flatten(%220) /* group=0x7f8b038e4ad8 */;
+  %222 = nn.batch_flatten(%221) /* group=0x7f8b038e4ad8 */;
+  %223 = multiply(1f /* group=0x7f8b038e4ad8 */, %222) /* group=0x7f8b038e4ad8 */;
+  %224 = nn.dense(%223, meta[relay.Constant][154] /* group=0x7f8b038e4b00 */ /* group=0x7f8b038e4b00 */, units=1000) /* group=0x7f8b038e4b78 */;
+  %225 = add(%224, meta[relay.Constant][155] /* group=0x7f8b038e4b50 */ /* group=0x7f8b038e4b50 */) /* group=0x7f8b038e4b78 */;
+  nn.softmax(%225) /* group=0x7f8b038e4ba0 */
+}
+// meta data omitted. you can use show_meta_data=True to include meta data
+-->End of DebugDumpGroup<--
+from src/relay/backend/build_module.cc PackedFunc GetGraphJSON()
+from src/relay/backend/build_module.cc std::string& GetGraphJSON()
+
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw
+ --> from conv2d_arm_cpu
+ --> from conv2d_arm_cpu: layout =='NCHW'
+  --> from conv2d_spatial_pack_nchw
+ --> from schedule_conv2d_nchw_arm_cpu
+  --> from schedule_conv2d_spatial_pack_nchw

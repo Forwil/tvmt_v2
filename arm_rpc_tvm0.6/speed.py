@@ -10,6 +10,7 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--device", default="x86", choices=["gpu","x86","arm","aarch64"])
     parser.add_argument("-o", "--output", default="", type = str)
     parser.add_argument("-b", "--batch", default=1, type = int)
+    parser.add_argument("-p", "--profile", default="false", type = str)
     arg = parser.parse_args()
     on, input_shape = get_onnx(arg.onnx, arg.batch)
     target = create_target(arg.device)
@@ -24,7 +25,10 @@ if __name__ == "__main__":
 
     if arg.device == 'aarch64' or arg.device == 'arm':
         lib = rlib
-    time = speed_rpc(graph, lib, params, ctx)
+    if arg.profile == 'false':
+        time = speed_rpc(graph, lib, params, ctx)
+    elif arg.profile == 'true':
+        time = speed_rpc_profile(graph, lib, params, ctx)
     name = os.path.basename(arg.onnx)
     print("%s, %.2f" % (name, time))
 
